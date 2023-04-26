@@ -35,7 +35,7 @@ export default defineConfig({
                 'resources/images/portada.png',
                 'resources/images/portada1.jpg',
                 'resources/images/norma.png',
-                'resources/images/maestra_norma.PNG',
+                'resources/images/maestra_norma.png',
                 //FILES
                 'resources/files/services_notary.pdf'
             ],

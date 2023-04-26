@@ -14,7 +14,7 @@
                         </div>
 
                         <div class="col-lg-5">
-                            <img src="{{mix('resources/images/maestra_norma.PNG')}}" alt="Image" class="img-fluid">
+                            <img src="{{mix('resources/images/maestra_norma.png')}}" alt="Image" class="img-fluid">
                         </div>
                     </div>
                 </div>

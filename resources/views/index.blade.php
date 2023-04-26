@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-7 intro">
-                            <h2 class="text-white">Notaría Pública Número 4</h2>
+{{--                            <h2 class="text-white">Notaría Pública Número 4</h2>--}}
                             <h1 class="text-white name-notary"><strong>Norma Romero Cortés</strong></h1>
                             <h3 class="text-white">Notario Titular</h3>
                         </div>

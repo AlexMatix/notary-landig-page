@@ -15,7 +15,6 @@ export default defineConfig({
                 'resources/css/owl.theme.default.min.css',
                 'resources/css/aos.css',
                 //FONTS
-                'resources/fonts/style.css',
                 'resources/fonts/flaticon/font/flaticon.css',
                 //JS
                 'resources/js/app.js',

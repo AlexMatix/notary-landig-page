@@ -28,7 +28,7 @@
 @section('content')
     <div class="site-section bg-light">
         <div class="container">
-            <iframe style="width: 100%; height: 800px" src="{{mix('resources/files/services_notary.pdf')}}"></iframe>
+            <iframe style="width: 100%; height: 800px" src="{{asset('files/services_notary.pdf')}}"></iframe>
         </div>
     </div>
 @endsection

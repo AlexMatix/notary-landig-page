@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 @section('front-page')
-    <div class="hero overlay" style="background-image: url({{mix('resources/images/portada1.jpg')}});">
+    <div class="hero overlay" style="background-image: url({{asset('images/portada1.jpg')}});">
 
         <div class="container">
             <div class="row align-items-center justify-content-center">

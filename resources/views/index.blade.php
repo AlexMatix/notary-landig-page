@@ -5,7 +5,7 @@
 
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="margin-top: 120px;">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-7 intro">
 {{--                            <h2 class="text-white">Notaría Pública Número 4</h2>--}}
@@ -14,7 +14,7 @@
                         </div>
 
                         <div class="col-lg-5">
-                            <img src="{{asset('images/maestra_norma.png')}}" alt="Image" class="img-fluid">
+                            <img src="{{asset('images/maestra_norma.png')}}" alt="Image" class="img-fluid master-norma">
                         </div>
                     </div>
                 </div>
@@ -24,6 +24,25 @@
 @endsection
 
 @section('content')
+    <div class="site-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center">
+                    <div class="row mb-5 mb-lg-0">
+                        <div class="col-12">
+                            <img src="images/atty_1.jpg" alt="Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 ml-auto order-lg-1">
+                    <h3 class="mb-4 section-heading"> <strong> Norma Cortés Caballero </strong> Notario auxiliar </h3>
+{{--                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo iste a labore id est quas, doloremque veritatis! Provident odit pariatur dolorem quisquam, voluptatibus voluptates optio accusamus, vel quasi quidem!</p>--}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="site-section">
         <div class="container">
             <div class="row">
@@ -96,7 +115,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Certificación de documentos</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>
@@ -107,7 +126,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Testamentos</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>
@@ -118,7 +137,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Trámites sucesorios y adjudicaciones por herencia</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>
@@ -129,7 +148,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Protocolización de documentos</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>
@@ -140,7 +159,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Constancias</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>
@@ -151,7 +170,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Cotejos</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>
@@ -162,7 +181,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Fideicomisos</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>
@@ -173,7 +192,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Ratificaciones</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>
@@ -184,7 +203,7 @@
                                 <span class="flaticon-shield"></span>
                             </div>
                             <h3>Actas Notariales</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, laboriosam!</p>--}}
                         </div>
                     </div>
                 </div>

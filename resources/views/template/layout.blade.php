@@ -48,7 +48,7 @@
 
                 <div class="col">
                     <div class="site-logo">
-                        <a href="index.html"><img class="image-logo" src="{{asset('images/logo.png')}}"
+                        <a href="{{route('index')}}"><img class="image-logo" src="{{asset('images/logo.png')}}"
                                                   alt="Notaria"></a>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                             {{--                                </ul>--}}
                             {{--                            </li>--}}
                             <li><a href="{{route('services')}}" class="nav-link primary-color-text">Servicios</a></li>
-                            <li><a href="{{route('us')}}" class="nav-link primary-color-text">¿Quienes somos?</a></li>
+{{--                            <li><a href="{{route('us')}}" class="nav-link primary-color-text">¿Quienes somos?</a></li>--}}
                             <li><a href="{{route('contact')}}" class="nav-link primary-color-text">Contactanos</a></li>
                         </ul>
                     </nav>

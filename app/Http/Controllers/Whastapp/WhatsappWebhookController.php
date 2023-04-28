@@ -9,6 +9,6 @@ class WhatsappWebhookController extends Controller
 {
     public function handleWebhook(Request $request)
     {
-        return $this->successResponse('-->', 200);
+        return $this->successResponse('webhooksNotaria4puebla', 200);
     }
 }

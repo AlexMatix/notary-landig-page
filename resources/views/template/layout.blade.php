@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <title>Notaría 4</title>
@@ -26,7 +26,6 @@
 </head>
 
 <body>
-
 
 <div class="site-wrap" id="home-section">
 

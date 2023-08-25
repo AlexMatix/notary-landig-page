@@ -14,4 +14,11 @@ class WhatsappWebhookController extends Controller
 
         return $this->successResponse((int)$request->get('hub_challenge'), 200);
     }
+
+    public function handleWebhookPost(Request $request)
+    {
+        Storage::disk('local')->put('output.txt', json_encode($request->all()));
+
+        return $this->successResponse((int)$request->get('hub_challenge'), 200);
+    }
 }

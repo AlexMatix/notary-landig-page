@@ -7,15 +7,15 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12" style="margin-top: 120px;">
                     <div class="row align-items-center justify-content-between">
-                        <div class="col-lg-7 intro">
+                        <div class="col-lg-10 intro">
 {{--                            <h2 class="text-white">Notaría Pública Número 4</h2>--}}
-                            <h1 class="text-white name-notary"><strong>Norma Romero Cortés</strong></h1>
-                            <h3 class="text-white">Notario Titular</h3>
+                            <h1 class="text-white name-notary"><strong>Notaría Pública Número 4</strong></h1>
+{{--                            <h3 class="text-white">Notario Titular</h3>--}}
                         </div>
 
-                        <div class="col-lg-5">
-                            <img src="{{asset('images/maestra_norma.png')}}" alt="Image" class="img-fluid master-norma">
-                        </div>
+{{--                        <div class="col-lg-5">--}}
+{{--                            <img src="{{asset('images/maestra_norma.png')}}" alt="Image" class="img-fluid master-norma">--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -27,6 +27,24 @@
     <div class="site-section">
         <div class="container">
             <div class="row align-items-center">
+
+                <div class="col-lg-4 ml-auto">
+                    <h3 class="mb-4 section-heading"> <strong> Norma Romero Cortés </strong> Notario Titular </h3>
+                    {{--                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo iste a labore id est quas, doloremque veritatis! Provident odit pariatur dolorem quisquam, voluptatibus voluptates optio accusamus, vel quasi quidem!</p>--}}
+
+                </div>
+
+                <div class="col-lg-7 text-center">
+                    <div class="row mb-5 mb-lg-0">
+                        <div class="col-12">
+                            <img src="{{asset('images/maestra_norma.png')}}"  alt="Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row align-items-center mt-2">
                 <div class="col-lg-7 text-center">
                     <div class="row mb-5 mb-lg-0">
                         <div class="col-12">
@@ -35,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 ml-auto order-lg-1">
-                    <h3 class="mb-4 section-heading"> <strong> Norma Cortés Caballero </strong> Notario auxiliar </h3>
+                    <h3 class="mb-4 section-heading"> <strong> Norma Alma Cortés Caballero </strong> Notario auxiliar </h3>
 {{--                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo iste a labore id est quas, doloremque veritatis! Provident odit pariatur dolorem quisquam, voluptatibus voluptates optio accusamus, vel quasi quidem!</p>--}}
 
                 </div>

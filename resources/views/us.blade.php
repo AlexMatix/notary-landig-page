@@ -31,9 +31,11 @@
             </div>
 
             <p>
-                Brindar servicios notariales de excelencia, apegados a la ley y con un compromiso social, para
-                garantizar la seguridad jurídica de nuestros clientes, apoyar a los más necesitados y asesorar de
-                forma integral en la elaboración de instrumentos jurídicos notariales.
+                Garantizar la eficaz prestación del servicio público del notariado, para que la población reciba un
+                servicio Notarial pronto, expedito, profesional y eficiente con imparcialidad a través de cumplir
+                siguientes principios y valores: Seguridad jurídica, Certeza Jurídica, Estabilidad, Confiabilidad,
+                Rogación, Imparcialidad, Transparencia, Honestidad, Secrecía, Profesionalismo, Independencia,
+                Obligatoriedad del servicio, Responsabilidad e Inmediación.
             </p>
 
             <div class="mb-5 text-center mt-5">
@@ -41,8 +43,9 @@
             </div>
 
             <p>
-                Ser la notaría pública líder en Puebla, reconocida por su servicio de excelencia, su compromiso con
-                la seguridad jurídica, su responsabilidad social, y su uso innovador de las tecnologías.
+                Ser la notaría pública de referencia en Puebla por el otorgamiento de la eficaz prestación del servicio
+                público del notariado.
+
             </p>
 
             <div class="mb-5 text-center mt-5">
@@ -50,37 +53,32 @@
             </div>
 
             <p class="text-justify">
-                La Notaría Pública número 4, con sede en la ciudad de Puebla, México, se compromete a brindar servicios
-                notariales de excelencia, que cumplan con los requisitos legales y reglamentarios, y que sean prestados
-                con profesionalismo y ética. Para ello, la notaría se compromete a:
-
+                La Notaría Pública número 4, con sede en la ciudad de Puebla, México, se compromete a brindar una eficaz
+                prestación del servicio público del notariado, y que sean prestados con profesionalismo y ética. Para
+                ello, la notaría se compromete a:
             <ul>
                 <li>
-                    Garantizar la seguridad jurídica de sus clientes, proporcionando servicios que cumplan con los
-                    requisitos
-                    legales y reglamentarios.
+                    Garantizar la seguridad jurídica de sus clientes, prestando un servició público del notariado
+                    apegado al Artículo 15 de la Ley del Notariado para el Estado de Puebla.
                 </li>
 
                 <li>
-                    Ofrecer un servicio de excelencia, que sea eficaz y eficiente, y que satisfaga las necesidades y
-                    expectativas de sus clientes.
+                    Ofrecer una eficaz prestación del servicio público del notariado, cumpliendo estrictamente con el
+                    Artículo 13 y 14 de la Ley del Notariado para el Estado de Puebla.
                 </li>
 
                 <li>
-                    Apoyar a los más necesitados, ofreciendo servicios notariales a precios asequibles o de forma
-                    gratuita.
+                    En cumplimiento con nuestra labor social la notaría apoyara a casos especiales, de atención
+                    ciudadana, o de interés social, así como lo establece el Artículo 16 de la Ley del Notariado para el
+                    Estado de Puebla.
                 </li>
 
                 <li>
                     Usar tecnologías de forma innovadora para mejorar la calidad de sus servicios y la experiencia de
-                    sus clientes.
+                    sus clientes como lo establece en los Artículos 81, 82, 174 de la Ley del Notariado para el Estado
+                    de Puebla.
                 </li>
 
-                <li>
-                    La notaría se compromete a realizar un proceso de mejora continua para garantizar que sus servicios
-                    cumplan
-                    con los requisitos de esta política de calidad.
-                </li>
             </ul>
             </p>
         </div>

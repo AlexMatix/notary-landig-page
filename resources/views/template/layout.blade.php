@@ -10,9 +10,10 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
 
-{{--    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">--}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {{--    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">--}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/jquery.fancybox.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
@@ -40,7 +41,6 @@
     </div>
 
 
-    {{--    TODO  poner el logo de la notaría y cambiar los menus a español--}}
     <header class="site-navbar site-navbar-target" role="banner">
 
         <div class="container">
@@ -49,7 +49,7 @@
                 <div class="col">
                     <div class="site-logo">
                         <a href="{{route('index')}}"><img class="image-logo" src="{{asset('images/logo.png')}}"
-                                                  alt="Notaria"></a>
+                                                          alt="Notaria"></a>
                     </div>
                 </div>
 
@@ -95,18 +95,32 @@
             <div class="row">
                 <div class="col-lg-7">
                     <h2 class="footer-heading mb-4">Sobre nosotros</h2>
-                    <p align="justify">En la Notaría Pública No. 4 ponemos a su disposición
-                        diferentes servicios para proteger sus tratos con
-                        clientes, proveedores, empleados y prestadores de
-                        servicio. Hemos capacitado a un talentoso grupo de
-                        abogados para atender las necesidades de las
-                        empresas actuales. Nuestro servicio es personalizado
-                        y flexible de acuerdo a sus circunstancias. </p>
+                    {{--                    <p align="justify">En la Notaría Pública No. 4 ponemos a su disposición--}}
+                    {{--                        diferentes servicios para proteger sus tratos con--}}
+                    {{--                        clientes, proveedores, empleados y prestadores de--}}
+                    {{--                        servicio. Hemos capacitado a un talentoso grupo de--}}
+                    {{--                        abogados para atender las necesidades de las--}}
+                    {{--                        empresas actuales. Nuestro servicio es personalizado--}}
+                    {{--                        y flexible de acuerdo a sus circunstancias. </p>--}}
+                    <p align="justify">
+                        La notaría Pública Número 4 se encuentra en Circuito Juan Pablo II 3117 Colonia las Animas
+                        Puebla Puebla, fundada en el año 2004.
+                        El lunes 23 de noviembre de 2009 el periódico oficial de Puebla en su tomo CDXV ser realiza la
+                        publicación del nombramiento
+                        con todos sus registros, conferido por Acuerdo del Ejecutivo del Estado, en favor de la
+                        licenciada Norma Romero Cortes, que
+                        la designa Titular de la Notaría Pública Número Cuatro del Distrito Judicial de Puebla, con
+                        residencia en la Ciudad de Puebla; en cumplimiento a lo ordenado por la fracción IV del artículo
+                        59 de la Ley del Notariado del Estado de Puebla y hace efectiva en cumplimiento al Segunto punto
+                        resolutivo del Acuerdo que desigana la titularidad de la Notaría Pública Número Cuatro del
+                        Distrito Judicial de Puebla.
+                    </p>
                     <ul class="list-unstyled social">
-                        <li><a href="https://www.facebook.com/Notaria-Pública-Número-4-186640313029576/" target="_blank"><span class="icon-facebook"></span></a></li>
-{{--                        <li><a href="#"><span class="icon-instagram"></span></a></li>--}}
-{{--                        <li><a href="#"><span class="icon-twitter"></span></a></li>--}}
-{{--                        <li><a href="#"><span class="icon-linkedin"></span></a></li>--}}
+                        <li><a href="https://www.facebook.com/Notaria-Pública-Número-4-186640313029576/"
+                               target="_blank"><span class="icon-facebook"></span></a></li>
+                        {{--                        <li><a href="#"><span class="icon-instagram"></span></a></li>--}}
+                        {{--                        <li><a href="#"><span class="icon-twitter"></span></a></li>--}}
+                        {{--                        <li><a href="#"><span class="icon-linkedin"></span></a></li>--}}
                     </ul>
                 </div>
                 <div class="col-lg-5 ml-auto">
@@ -114,67 +128,73 @@
                         <div class="col-lg-6">
                             <h2 class="footer-heading mb-4">Enlaces de interes</h2>
                             <ul class="list-unstyled">
-{{--                                <li><a href="#">Nosotros</a></li>--}}
-{{--                                <li><a href="#">Testimonios</a></li>--}}
-{{--                                <li><a href="#">Terminos de uso</a></li>--}}
-{{--                                <li><a href="#">Privacidad</a></li>--}}
+                                {{--                                <li><a href="#">Nosotros</a></li>--}}
+                                {{--                                <li><a href="#">Testimonios</a></li>--}}
+                                {{--                                <li><a href="#">Terminos de uso</a></li>--}}
+                                <li><a href="{{route('us')}}">Política de Calidad</a></li>
                                 <li><a href="{{route('contact')}}">Contactanos</a></li>
                             </ul>
                         </div>
-{{--                        <div class="col-lg-3">--}}
-{{--                            <h2 class="footer-heading mb-4">Resources</h2>--}}
-{{--                            <ul class="list-unstyled">--}}
-{{--                                <li><a href="#">About Us</a></li>--}}
-{{--                                <li><a href="#">Testimonials</a></li>--}}
-{{--                                <li><a href="#">Terms of Service</a></li>--}}
-{{--                                <li><a href="#">Privacy</a></li>--}}
-{{--                                <li><a href="#">Contact Us</a></li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-lg-3">--}}
-{{--                            <h2 class="footer-heading mb-4">Support</h2>--}}
-{{--                            <ul class="list-unstyled">--}}
-{{--                                <li><a href="#">About Us</a></li>--}}
-{{--                                <li><a href="#">Testimonials</a></li>--}}
-{{--                                <li><a href="#">Terms of Service</a></li>--}}
-{{--                                <li><a href="#">Privacy</a></li>--}}
-{{--                                <li><a href="#">Contact Us</a></li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-lg-3">--}}
-{{--                            <h2 class="footer-heading mb-4">Company</h2>--}}
-{{--                            <ul class="list-unstyled">--}}
-{{--                                <li><a href="#">About Us</a></li>--}}
-{{--                                <li><a href="#">Testimonials</a></li>--}}
-{{--                                <li><a href="#">Terms of Service</a></li>--}}
-{{--                                <li><a href="#">Privacy</a></li>--}}
-{{--                                <li><a href="#">Contact Us</a></li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="col-lg-3">--}}
+                        {{--                            <h2 class="footer-heading mb-4">Resources</h2>--}}
+                        {{--                            <ul class="list-unstyled">--}}
+                        {{--                                <li><a href="#">About Us</a></li>--}}
+                        {{--                                <li><a href="#">Testimonials</a></li>--}}
+                        {{--                                <li><a href="#">Terms of Service</a></li>--}}
+                        {{--                                <li><a href="#">Privacy</a></li>--}}
+                        {{--                                <li><a href="#">Contact Us</a></li>--}}
+                        {{--                            </ul>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="col-lg-3">--}}
+                        {{--                            <h2 class="footer-heading mb-4">Support</h2>--}}
+                        {{--                            <ul class="list-unstyled">--}}
+                        {{--                                <li><a href="#">About Us</a></li>--}}
+                        {{--                                <li><a href="#">Testimonials</a></li>--}}
+                        {{--                                <li><a href="#">Terms of Service</a></li>--}}
+                        {{--                                <li><a href="#">Privacy</a></li>--}}
+                        {{--                                <li><a href="#">Contact Us</a></li>--}}
+                        {{--                            </ul>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="col-lg-3">--}}
+                        {{--                            <h2 class="footer-heading mb-4">Company</h2>--}}
+                        {{--                            <ul class="list-unstyled">--}}
+                        {{--                                <li><a href="#">About Us</a></li>--}}
+                        {{--                                <li><a href="#">Testimonials</a></li>--}}
+                        {{--                                <li><a href="#">Terms of Service</a></li>--}}
+                        {{--                                <li><a href="#">Privacy</a></li>--}}
+                        {{--                                <li><a href="#">Contact Us</a></li>--}}
+                        {{--                            </ul>--}}
+                        {{--                        </div>--}}
                     </div>
                 </div>
             </div>
-{{--            <div class="row pt-5 mt-5 text-center">--}}
-{{--                <div class="col-md-12">--}}
-{{--                    <div class="border-top pt-5">--}}
-{{--                        <p>--}}
-{{--                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--}}
-{{--                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>--}}
-{{--                            All rights reserved | This template is made with <i class="icon-heart text-danger"--}}
-{{--                                                                                aria-hidden="true"></i> by <a--}}
-{{--                                href="https://colorlib.com" target="_blank">Colorlib</a>--}}
-{{--                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--}}
-{{--                        </p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--            <div class="row pt-5 mt-5 text-center">--}}
+            {{--                <div class="col-md-12">--}}
+            {{--                    <div class="border-top pt-5">--}}
+            {{--                        <p>--}}
+            {{--                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--}}
+            {{--                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>--}}
+            {{--                            All rights reserved | This template is made with <i class="icon-heart text-danger"--}}
+            {{--                                                                                aria-hidden="true"></i> by <a--}}
+            {{--                                href="https://colorlib.com" target="_blank">Colorlib</a>--}}
+            {{--                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--}}
+            {{--                        </p>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
     </footer>
 
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
 {{--<script src="{{asset('js/bootstrap.min.js')}}"></script>--}}

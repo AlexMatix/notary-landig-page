@@ -333,6 +333,14 @@ h1, h2, h3, h4, h5,
     background: #0d2b3e;
 }
 
+.site-navbar {
+    /* Sombra inferior sutil */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
+
+    /* Efecto de elevación sutil */
+    /*transform: translateY(8px);*/
+}
+
 @media (max-width: 991.98px) {
     .site-navbar {
         padding-top: 3rem;

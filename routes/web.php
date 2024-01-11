@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Cite\CitesController;
 use App\Http\Controllers\Contact\ContactController;
+use App\Http\Controllers\Services\ServicesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index')->with('alert', false);
+    return view('index')->with('alert', false)->with('services', ServicesController::getServices());
 })->name('index');
 Route::post('/contact/cite', [CitesController::class, 'create'])->name('cite-create');
 
 
 Route::get('/services', function () {
-    return view('services');
+    return view('services')->with('services', ServicesController::getServices());
 })->name('services');
 
 

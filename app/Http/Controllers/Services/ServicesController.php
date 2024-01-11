@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 
 class ServicesController extends Controller
 {
-    public function getServices()
+    static public function getServices()
     {
-
         return [
             'ACTAS NOTARIALES' => [
                 'INFORMACIÓN TESTIMONIAL DE NOMBRE' => [
@@ -254,7 +253,7 @@ class ServicesController extends Controller
                     ]
                 ]
             ],
-            'TRASLATIVAVS DE DOMINIO' => [
+            'TRASLATIVAS DE DOMINIO' => [
                 'OTORGAMIENTO DE ESCRITURA/ADJUDICACIÓN A VIRTUD DE REMATE' => [
                     'Generales' => [
                         'Expediente de Juzgado',

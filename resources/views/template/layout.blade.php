@@ -76,6 +76,7 @@
                             <li><a href="{{route('services')}}" class="nav-link primary-color-text">Servicios</a></li>
                             <li><a href="{{route('us')}}" class="nav-link primary-color-text">¿Quienes somos?</a></li>
                             <li><a href="{{route('contact')}}" class="nav-link primary-color-text">Contactanos</a></li>
+                            <li><a href="{{route('mailbox_complaints')}}" class="nav-link primary-color-text">Buzón de quejas</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -130,7 +131,7 @@
                             <ul class="list-unstyled">
                                 {{--                                <li><a href="#">Nosotros</a></li>--}}
                                 {{--                                <li><a href="#">Testimonios</a></li>--}}
-                                {{--                                <li><a href="#">Terminos de uso</a></li>--}}
+                                <li><a href="{{route('mailbox_complaints')}}">Buzón de quejas</a></li>
                                 <li><a href="{{route('us')}}">Política de Calidad</a></li>
                                 <li><a href="{{route('contact')}}">Contactanos</a></li>
                             </ul>

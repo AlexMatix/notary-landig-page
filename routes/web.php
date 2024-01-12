@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Cite\CitesController;
 use App\Http\Controllers\Contact\ContactController;
+use App\Http\Controllers\MailBoxComplaint\MailBoxComplaintController;
 use App\Http\Controllers\Services\ServicesController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,10 @@ Route::post('/contact/create', [ContactController::class, 'create'])->name('cont
 Route::get('/us', function () {
     return view('us');
 })->name('us');
+
+
+Route::get('/mailbox_complaints', function () {
+    return view('mailbox_complaints')->with('alert', false);
+})->name('mailbox_complaints');
+Route::post('/mailbox_complaints/create', [MailBoxComplaintController::class, 'create'])->name('mailbox-create');
+

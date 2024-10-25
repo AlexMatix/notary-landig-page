@@ -72,11 +72,12 @@
             </div>
 
             <p>
-                Garantizar la eficaz prestación del servicio público del notariado, para que la población reciba un
-                servicio Notarial pronto, expedito, profesional y eficiente con imparcialidad a través de cumplir
-                siguientes principios y valores: Seguridad jurídica, Certeza Jurídica, Estabilidad, Confiabilidad,
-                Rogación, Imparcialidad, Transparencia, Honestidad, Secrecía, Profesionalismo, Independencia,
-                Obligatoriedad del servicio, Responsabilidad e Inmediación.
+                Garantizar la eficaz prestación del servicio público del notariado, 
+                para que la población reciba un servicio Notarial pronto, expedito, 
+                profesional y eficiente con imparcialidad a través de cumplir siguientes 
+                principios y valores: Seguridad jurídica, Certeza Jurídica, Estabilidad, 
+                Confiabilidad, Rogación, Imparcialidad, Transparencia, Honestidad, Secrecía, 
+                Profesionalismo, Independencia, Obligatoriedad del servicio, Responsabilidad e Inmediación. 
             </p>
 
             <div class="mb-5 text-center mt-5">
@@ -84,7 +85,14 @@
             </div>
 
             <p>
-                Ser la notaría pública de referencia en Puebla por el otorgamiento de la eficaz prestación del servicio público del notariado.
+                Ser la Notaría Pública de referencia en Puebla, destacándonos por la excelencia en la 
+                prestación del servicio público del notariado, nuestro compromiso es ofrecer un servicio  eficiente, 
+                transparente y accesible asegurando la integridad y seguridad en cada acto notarial, 
+                así como crear las medidas necesarias para facilitar la actividad notarial a fin de que la 
+                prestación del servicio se desarrolle en total libertad y expeditez para la persona 
+                usuario del servicio notarial, cumpliendo con el derecho al servicio del bien y la paz en el
+                estado de Puebla (Referencia artículo 4 ley del notariado).
+
             </p>
         </div>
     </div>

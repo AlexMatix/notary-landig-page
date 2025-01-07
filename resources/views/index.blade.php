@@ -92,6 +92,7 @@
                 prestación del servicio se desarrolle en total libertad y expeditez para la persona 
                 usuario del servicio notarial, cumpliendo con el derecho al servicio del bien y la paz en el
                 estado de Puebla (Referencia artículo 4 ley del notariado).
+                
 
             </p>
         </div>

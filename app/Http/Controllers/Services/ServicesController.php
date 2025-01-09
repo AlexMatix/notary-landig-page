@@ -382,19 +382,19 @@ class ServicesController extends Controller
         $response = Http::get($this->host . $token);
         // dd($response->object());
         if ($response->status() == 200) {
-            $verify = true;
+            $verify = 1;
             $body = $response->object();
             $name = empty($body->staff) ? $body->name :
                 $body->staff->name . ' ' . $body->staff->last_name . ' ' . $body->staff->mother_last_name;
-            $textNotification = "Esta cotización es valida, fue realizada por " . $name . " \n Consulta los requisitos de tu operación";
+            $textNotification = "Esta cotización es valida, fue realizada por " . $name . " \n Consulta los requisitos de tu operación deslizando la página";
         } else {
-            $verify = false;
+            $verify = 2;
             $textNotification = 'Esta cotización no fue realizada por ningún de nuestros
                     colaboradores, por favor verifique la información contactandote con nosotros.';
         }
 
 
-        return view('services', ['idSeccion' => 'content'])
+        return view('services')
             ->with('services', ServicesController::getServices())
             ->with('verify', $verify)
             ->with('textNotification', $textNotification);

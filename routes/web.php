@@ -24,7 +24,10 @@ Route::post('/contact/cite', [CitesController::class, 'create'])->name('cite-cre
 
 
 Route::get('/services', function () {
-    return view('services')->with('services', ServicesController::getServices());
+    return view('services')
+    ->with('services', ServicesController::getServices())
+    ->with('verify', false)
+    ->with('textNotification', '');
 })->name('services');
 
 

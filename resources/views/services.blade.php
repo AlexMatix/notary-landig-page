@@ -27,25 +27,10 @@
 
 @section('content')
     <div class="site-section bg-light">
-        <div class="container"  id="content" #content>
-
-            @if ($verify)
-                <div class="alert alert-success" role="alert">
-                   <p> {{ $textNotification }} </p>
-                </div>
-            @else
-                <div class="alert alert-danger" role="alert">
-                    {{ $textNotification }}
-                </div>    
-            @endif
-
-
+        <div class="container">
             @foreach ($services as $category => $service)
                 <div class="mb-5 text-center">
                     <h2 class="section-heading"><strong class="text-black">Servicios de </strong> {{ $category }}</h2>
-                    {{--                    <p class="mb-5">En la Notaría Pública No. 4 ponemos a su disposición una gama --}}
-                    {{--                        completa de servicios generales, que darán seguridad jurídica a su --}}
-                    {{--                        patrimonio.</p> --}}
                 </div>
                 <div class="row">
                     @foreach ($service as $name => $requirements)
@@ -98,6 +83,35 @@
         </div>
     </div>
 
+     <!-- Modal -->
+     <div class="modal fade" id="verifyQuote" tabindex="-1" role="dialog" aria-labelledby="ScrollableTitle"
+     aria-hidden="true">
+     <div class="modal-dialog modal-dialog-scrollable" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="ScrollableTitle"></h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                    @if ($verify == 1)
+                        <div class="alert alert-success" role="alert">
+                        <p> {{ $textNotification }} </p>
+                        </div>
+                    @elseif ($verify == 2)
+                        <div class="alert alert-danger" role="alert">
+                            {{ $textNotification }}
+                        </div>    
+                    @endif
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+         </div>
+     </div>
+ </div>
+
     <script type="application/javascript">
         function viewModalRequirements(name, requirements) {
             $('#requirements').modal('show');
@@ -120,5 +134,13 @@
 
             body.innerHTML = text_body;
         }
+
+        @if($verify)
+            document.addEventListener('DOMContentLoaded', function() {
+                $('#verifyQuote').modal('show');
+            });
+        @endif
+            
     </script>
 @endsection
+

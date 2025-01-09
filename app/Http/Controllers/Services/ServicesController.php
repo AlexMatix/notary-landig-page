@@ -9,8 +9,8 @@ use \Illuminate\Http\Client\Response;
 
 class ServicesController extends Controller
 {
-    // private $host = 'https://back.notaria4puebla.com.mx/projectQuote/getReport/';
-    private $host = 'localhost:8000/api/projectQuote/verify/';
+    private $host = 'https://back.notaria4puebla.com.mx/api/projectQuote/verify/';
+    // private $host = 'localhost:8000/api/projectQuote/verify/';
     public static $services = [
         'ACTAS NOTARIALES' => [
             'INFORMACIÓN TESTIMONIAL DE NOMBRE' => [

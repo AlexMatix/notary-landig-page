@@ -24,7 +24,7 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-
+    <link href="{{asset('images/logo.png')}}" rel="icon" type="image/x-icon" />
 </head>
 
 <body>

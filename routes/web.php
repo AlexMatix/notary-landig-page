@@ -28,6 +28,8 @@ Route::get('/services', function () {
 })->name('services');
 
 
+Route::get('/services/quote/{token}', [ServicesController::class, 'validProjectQuote'])->name('/services/quote/{token}');
+
 Route::get('/contact', function () {
     return view('contact')->with('alert', false);
 })->name('contact');

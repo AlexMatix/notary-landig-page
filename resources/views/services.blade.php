@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 @section('front-page')
-    <div class="hero overlay" style="background-image: url({{asset('images/portada1.jpg')}});">
+    <div class="hero overlay" style="background-image: url({{ asset('images/portada1.jpg') }});">
 
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -27,16 +27,28 @@
 
 @section('content')
     <div class="site-section bg-light">
-        <div class="container">
-            @foreach($services as $category => $service)
+        <div class="container"  id="content" #content>
+
+            @if ($verify)
+                <div class="alert alert-success" role="alert">
+                   <p> {{ $textNotification }} </p>
+                </div>
+            @else
+                <div class="alert alert-danger" role="alert">
+                    {{ $textNotification }}
+                </div>    
+            @endif
+
+
+            @foreach ($services as $category => $service)
                 <div class="mb-5 text-center">
-                    <h2 class="section-heading"><strong class="text-black">Servicios de </strong> {{$category}}</h2>
-                    {{--                    <p class="mb-5">En la Notaría Pública No. 4 ponemos a su disposición una gama--}}
-                    {{--                        completa de servicios generales, que darán seguridad jurídica a su--}}
-                    {{--                        patrimonio.</p>--}}
+                    <h2 class="section-heading"><strong class="text-black">Servicios de </strong> {{ $category }}</h2>
+                    {{--                    <p class="mb-5">En la Notaría Pública No. 4 ponemos a su disposición una gama --}}
+                    {{--                        completa de servicios generales, que darán seguridad jurídica a su --}}
+                    {{--                        patrimonio.</p> --}}
                 </div>
                 <div class="row">
-                    @foreach($service as $name => $requirements)
+                    @foreach ($service as $name => $requirements)
                         <div class="col-lg-4 mb-5">
 
                             <div class="practicing">
@@ -44,8 +56,10 @@
                                     <div class="wrap-icon">
                                         <span class="flaticon-shield"></span>
                                     </div>
-                                    <h3>{{$name}}</h3>
-                                    <button class="btn btn-sm" onclick="viewModalRequirements('{{$name}}', '{{json_encode($requirements)}}')">Ver requisitos</button>
+                                    <h3>{{ $name }}</h3>
+                                    <button class="btn btn-sm"
+                                        onclick="viewModalRequirements('{{ $name }}', '{{ json_encode($requirements) }}')">Ver
+                                        requisitos</button>
                                 </div>
                             </div>
                         </div>
@@ -57,13 +71,13 @@
 
     <div class="site-section bg-light">
         <div class="container">
-            <iframe style="width: 100%; height: 800px" src="{{asset('files/services_notary.pdf')}}"></iframe>
+            <iframe style="width: 100%; height: 800px" src="{{ asset('files/services_notary.pdf') }}"></iframe>
         </div>
     </div>
 
     <!-- Modal -->
     <div class="modal fade" id="requirements" tabindex="-1" role="dialog" aria-labelledby="ScrollableTitle"
-         aria-hidden="true">
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">

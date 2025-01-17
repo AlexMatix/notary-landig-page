@@ -95,6 +95,27 @@
                 
 
             </p>
+
+            <div class="mb-5 text-center mt-5">
+                <h2 class="section-heading"><strong class="text-black"> Política de calidad </strong></h2>
+            </div>
+
+            <p>
+               La Notaría Pública Número 4, con sede en la ciudad de puebla, México, se compromete
+               a brindar una eficaz prestación del servicio público del notariado, y que sean prestados con profesionalismo y ética,
+               buscando la satisfación de los clientes  y la mejora continua de nuestro Sistema de Gestión de la Calidad.
+               Para ello, la notaría de compromete a los siguientes puntos:
+
+               <ul>
+                   <li>Estandarización de los formatos de Actas Notariales y Escrituras</li>
+                   <li>Estandarización de los criterios de asesoría</li>
+                   <li>Mejora de instalaciones</li>
+                   <li>Capacitaciones de personal nuevo</li>
+                   <li>Implementación de un sistema computacional a medida que logre modelar 
+                    todos los procesos de la notaría</li>
+                </ul>
+
+            </p>
         </div>
     </div>
 

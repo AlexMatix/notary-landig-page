@@ -20,10 +20,127 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
+
+
     </div>
-@endsection
+    @endsection
+
+
+
+    @if($verify==1)
+        @section('Quote-Info')
+
+            <div class ="quote-container" id="quote-section">
+                @if($quote->user->staff != null)
+                    <span class = "staff-info font-weight-bold">Asesor/a que creó la cotización: {{$quote->user->staff->full_name}}</span>
+                @endif
+                @if (isset($quote) && isset($quote->quote->detail_quote) && count($quote->quote->detail_quote) > 0)
+                    <div class="quote-detail-card">
+        
+                
+                    <div class="quote-header">
+                        <div class="quote-toolbar card-header text-white d-flex justify-content-between align-items-center">
+                            <h2 class="quote-title mb-0">Detalle de Cotización</h2>
+                        </div>
+                    </div>
+        
+                    <div class="quote-content card-body p-4">
+                        {{-- Iterar sobre cada operación en detail_quote --}}
+                        @foreach ($quote->quote->detail_quote as $i => $operation)
+                            <div class="operation-section">
+                                <h3 class="operation-section-title">
+                                    <span class="highlight-name">{{ ucwords($operation->name ?? 'N/A') }}</span>
+                                </h3>
+        
+                                {{-- Iterar sobre los campos de cada operación --}}
+                                @if (isset($operation->operation_fields) && is_array($operation->operation_fields))
+                                    @foreach ($operation->operation_fields as $field)
+                                        <div class="field-block">
+                                            <h4 class="field-name">{{ ucwords($field->name ?? 'N/A') }}</h4>
+                                            <ul class="concept-list">
+                                    
+                                                {{-- Iterar sobre los conceptos de la descripción --}}
+                                                @if (isset($field->description) && is_array($field->description))
+                                                    @foreach ($field->description as $concept)
+                                                        <li class="concept-item">
+                                                            <span class="concept-label">{{ $concept->concept ?? 'N/A' }}</span>
+                                                        </li>
+                                                    @endforeach
+                                                @endif
+                                            </ul>
+                                            <div class="field-subtotal">
+                                                <span class="subtotal-label">Subtotal {{ ucwords($field->name ?? 'N/A') }}:</span>
+                                                <span class="subtotal-value">${{ number_format($field->total ?? 0, 2) }}</span>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+        
+                                {{-- Mostrar el total de la operación si existe --}}
+                                @if (isset($operation->operation_total))
+                                    <div class="operation-total-block">
+                                        <div class="final-operation-total">
+                                            <span class="total-label">Total {{ ucwords($operation->name ?? 'N/A') }}:</span>
+                                            <span class="total-value">${{ number_format($operation->operation_total->total ?? 0, 2) }}</span>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                            {{-- Separador entre operaciones --}}
+                            @if (!$loop->last)
+                                <hr class="section-divider" />
+                            @endif
+                        @endforeach
+        
+                        {{-- Mostrar el total general si existe --}}
+                        @if (isset($quote->quote->total_quote->general_total))
+                            <div class="overall-total-block mt-4 pt-3 border-top">
+                                <h3 class="overall-total-title text-center">Total General</h3>
+                                <div class="overall-total-summary text-right">
+                                    <span class="overall-total-label font-weight-bold">Total: </span>
+                                    <span class="overall-total-value font-weight-bold">
+                                        ${{ number_format($quote->quote->total_quote->general_total ?? 0, 2) }}
+                                    </span>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    
+                @else
+                    <div class="alert alert-info mt-4">
+                        No hay detalles de operaciones disponibles para esta cotización.
+                    </div>
+                @endif
+            </div>    
+        @endsection
+    @else
+
+        <div class="modal fade" id="verifyQuote" tabindex="-1" role="dialog" aria-labelledby="ScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ScrollableTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $textNotification }}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    
+    @endif
+    
 
 @section('content')
     <div class="site-section bg-light">
@@ -44,7 +161,8 @@
                                     <h3>{{ $name }}</h3>
                                     <button class="btn btn-sm"
                                         onclick="viewModalRequirements('{{ $name }}', '{{ json_encode($requirements) }}')">Ver
-                                        requisitos</button>
+                                        requisitos
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -84,33 +202,7 @@
     </div>
 
      <!-- Modal -->
-     <div class="modal fade" id="verifyQuote" tabindex="-1" role="dialog" aria-labelledby="ScrollableTitle"
-     aria-hidden="true">
-     <div class="modal-dialog modal-dialog-scrollable" role="document">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title" id="ScrollableTitle"></h5>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-             </div>
-             <div class="modal-body">
-                    @if ($verify == 1)
-                        <div class="alert alert-success" role="alert">
-                        <p> {{ $textNotification }} </p>
-                        </div>
-                    @elseif ($verify == 2)
-                        <div class="alert alert-danger" role="alert">
-                            {{ $textNotification }}
-                        </div>    
-                    @endif
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             </div>
-         </div>
-     </div>
- </div>
+    
 
     <script type="application/javascript">
         function viewModalRequirements(name, requirements) {
@@ -143,4 +235,3 @@
             
     </script>
 @endsection
-

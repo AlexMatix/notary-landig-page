@@ -9,8 +9,8 @@ use \Illuminate\Http\Client\Response;
 
 class ServicesController extends Controller
 {
-    private $host = 'https://back.notaria4puebla.com.mx/api/projectQuote/verify/';
-    // private $host = 'localhost:8000/api/projectQuote/verify/';
+    private $host = 'https://servicioschimichangas.com/api/projectQuotes/verify/';
+    //private $host = 'localhost:8000/api/projectQuote/verify/';
     public static $services = [
         'ACTAS NOTARIALES' => [
             'INFORMACIÓN TESTIMONIAL DE NOMBRE' => [
@@ -376,27 +376,34 @@ class ServicesController extends Controller
         return self::$services;
     }
 
-    public function validProjectQuote(string $token)
+    public function validProjectQuote(string $token, int $quoteId)
     {
 
-        $response = Http::get($this->host . $token);
-        // dd($response->object());
+        $response = Http::get($this->host . $token . "/" . $quoteId);
+         //dd($response->object());
         if ($response->status() == 200) {
             $verify = 1;
-            $body = $response->object();
-            $name = empty($body->staff) ? $body->name :
-                $body->staff->name . ' ' . $body->staff->last_name . ' ' . $body->staff->mother_last_name;
-            $textNotification = "Esta cotización es valida, fue realizada por " . $name . " \n Consulta los requisitos de tu operación deslizando la página";
+            $quote = $response->object();
+            //dd($quote);
+            $textNotification = "";
+
+
+            //Objeto quote
+            // $quoteResponse = Http::get($this->host . $quoteid);
+            // $quote = $quoteResponse->object();
+            // $quoteDetails = isset($quote->data) ? $quote->data : null;
         } else {
             $verify = 2;
             $textNotification = 'Esta cotización no fue realizada por ningún de nuestros
                     colaboradores, por favor verifique la información contactandote con nosotros.';
+            $quote = '';        
         }
 
 
         return view('services')
             ->with('services', ServicesController::getServices())
             ->with('verify', $verify)
-            ->with('textNotification', $textNotification);
+            ->with('textNotification', $textNotification)
+            ->with('quote', $quote);
     }
 }

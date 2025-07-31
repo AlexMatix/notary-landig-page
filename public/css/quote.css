@@ -1,0 +1,282 @@
+/* Variables de color para fácil mantenimiento */
+:root {
+  --primary-color: #0d2b3e; /* Azul vibrante */
+  --secondary-color: #6c757d; /* Gris para textos secundarios */
+  --accent-color: #dfc356; /* Verde para totales o énfasis */
+  --background-light: #f8f9fa; /* Fondo muy claro */
+  --border-light: #e9ecef; /* Bordes claros */
+  --text-dark: #343a40; /* Texto oscuro */
+  --text-light: #ffffff; /* Texto claro */
+}
+
+html{
+  scroll-behavior: smooth;
+}
+.quote-container{
+  font-family:'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+}
+
+.staff-info{
+  margin-top: 10px;
+  text-align: center;
+}
+  
+.quote-detail-card {
+  font-family: 'Segoe UI', 'Arial', 'sans-serif' !important ;
+  max-width: 900px; /* Ancho cómodo para la lectura */
+  margin: 30px auto; /* Centrado con margen */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+  overflow: hidden; /* Para que los bordes redondeados se apliquen bien */
+}
+
+/* Encabezado y barra de herramientas */
+.quote-header {
+  background-color: var(--primary-color);
+  padding: 0; /* Sin padding en el div, el toolbar lo maneja */
+}
+
+.quote-toolbar {
+  height: 64px; /* Altura estándar de Material */
+  padding: 0 20px; /* Padding interno */
+  justify-content: space-between; /* Espacio entre título y toggle */
+  align-items: center;
+  background-color: var(--primary-color); /* Asegurar color */
+  color: #ffffff;
+}
+
+.quote-title {
+  font-family: 'Roboto';
+  font-size: 1.8em;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.quote-toggle {
+  color: #ffffff;
+}
+
+.quote-toggle span {
+  color: #ffffff; /* Asegurar que el texto del toggle sea blanco */
+  font-size: 1em;
+}
+
+/* Contenido principal de la cotización */
+.quote-content {
+  padding: 30px 40px; /* Padding interno generoso */
+}
+
+.operation-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.operation-section:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.operation-section-title {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.operation-section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.highlight-name {
+  font-family:'Segoe UI', Arial, sans-serif;
+  color: var(--text-dark); /* Color más oscuro para el nombre de la operación */
+  font-weight: 700;
+}
+
+.field-block {
+  margin-bottom: 25px;
+  padding: 15px 0;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background-color: var(--background-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.field-name {
+  font-family:'Segoe UI', Arial, sans-serif;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 20px 15px 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dee2e6; /* Ligeramente más oscuro que el borde de la tarjeta */
+}
+
+.concept-list {
+  list-style: none;
+  padding: 0 20px;
+  margin: 0;
+}
+
+.concept-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dotted #e9ecef; /* Punteado más sutil */
+  font-size: 1.1em;
+  color: var(--text-dark);
+}
+
+.concept-item:last-child {
+  border-bottom: none;
+}
+
+.concept-label {
+  color: var(--secondary-color);
+}
+
+.concept-value {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.field-subtotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px 0 20px;
+  margin-top: 15px;
+  border-top: 2px dashed var(--primary-color); /* Línea punteada de acento */
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.subtotal-label {
+  color: var(--text-dark);
+}
+
+.subtotal-value {
+  color: var(--primary-color); /* Color primario para el subtotal */
+}
+
+/* Total por operación */
+.operation-total-block {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid var(--primary-color); /* Línea sólida de énfasis */
+  background-color: var(--background-light);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.total-name {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.final-operation-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px 0 20px;
+  margin-top: 15px;
+  border-top: 2px dashed var(--accent-color); /* Línea punteada de acento */
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+.total-label {
+  color: var(--text-dark);
+}
+
+.total-value {
+  color: var(--accent-color); /* Color de acento para el total */
+}
+
+/* Separador entre las operaciones principales */
+.section-divider {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  margin: 40px 0;
+}
+
+/* Total General */
+.overall-total-block {
+  margin-top: 40px;
+  padding: 25px;
+  border-top: 3px solid var(--primary-color); /* Línea más gruesa para el total general */
+  background-color: var(--primary-color); /* Fondo del total general */
+  border-radius: 0 0 12px 12px; /* Bordes inferiores redondeados para coincidir con la tarjeta */
+  color: #ffffff; /* Texto blanco para el fondo oscuro */
+  box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra interna */
+}
+
+.overall-total-title {
+  font-family:'Segoe UI', Arial, sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.overall-total-summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  font-size: 1.8em;
+  font-weight: 800;
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea separadora blanca semitransparente */
+  margin-top: 15px;
+}
+
+.overall-total-label {
+  color: #ffffff;
+}
+
+.overall-total-value {
+  color: #ffffff;
+}
+
+/* Clase para ocultar detalles al cliente */
+.hidden-for-client {
+  opacity: 0.3; /* Menos opacidad para indicar que está "oculto" */
+  filter: blur(0.5px); /* Añadir un pequeño blur para hacerlo más ilegible */
+  pointer-events: none; /* Deshabilitar eventos de ratón si es necesario */
+  transition: all 0.3s ease-out; /* Suavizar la transición */
+}
+
+/* Ajustes para mat-slide-toggle */
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: rgba(255, 255, 255, 0.5) !important; /* Fondo del toggle cuando está encendido */
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: white !important; /* El círculo del toggle cuando está encendido */
+}
+
+/* Asegurar que el texto del toggle sea visible */
+.mat-slide-toggle-content {
+  color: white !important;
+}

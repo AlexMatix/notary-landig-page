@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/quote.css')}}">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
@@ -88,7 +89,7 @@
     </header>
 
     @yield('front-page')
-
+    @yield('Quote-Info')
     @yield('content')
 
     <footer class="site-footer" style="background-image: url({{asset('images/hero_bg_footer.jpg')}})">

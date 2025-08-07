@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Contact;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -14,9 +15,11 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        $response = $this->showList(Contact::where('process',0)->paginate(100));
+        //dd($response);
+        return $response;
     }
 
     /**
@@ -50,7 +53,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+        return $contact;
     }
 
     /**

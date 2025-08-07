@@ -9,7 +9,7 @@ use \Illuminate\Http\Client\Response;
 
 class ServicesController extends Controller
 {
-    private $host = 'https://servicioschimichangas.com/api/projectQuotes/verify/';
+    private $host = 'https://servicioschimichangas.com/api/projectQuote/verify/';
     //private $host = 'localhost:8000/api/projectQuote/verify/';
     public static $services = [
         'ACTAS NOTARIALES' => [

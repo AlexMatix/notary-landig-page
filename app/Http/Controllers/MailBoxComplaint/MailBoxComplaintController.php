@@ -15,7 +15,9 @@ class MailBoxComplaintController extends Controller
      */
     public function index()
     {
-        //
+        $response = $this->showList(MailBoxComplaint::where('process', 0)->paginate(100));
+        //dd($response);
+        return $response;
     }
 
     /**
@@ -26,7 +28,7 @@ class MailBoxComplaintController extends Controller
      */
     public function create(Request $request)
     {
-        $mailbox = MailBoxComplaint::created($request);
+        $mailbox = MailBoxComplaint::create($request->all());
 
         return view('mailbox_complaints')->with('alert', true);
     }
@@ -48,9 +50,10 @@ class MailBoxComplaintController extends Controller
      * @param  \App\Models\MailBoxComplaint  $mailBoxComplaint
      * @return \Illuminate\Http\Response
      */
-    public function show(MailBoxComplaint $mailBoxComplaint)
+    public function show($id)
     {
-        //
+        $mailBoxComplaint = MailBoxComplaint::find($id);
+        return $mailBoxComplaint;
     }
 
     /**

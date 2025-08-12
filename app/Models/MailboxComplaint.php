@@ -11,8 +11,10 @@ class MailboxComplaint extends Model
 
     protected $fillable = [
         'name',
-        'contact',
+        'email',
         'affair',
         'complaint',
+        'phone',
+        'process',
     ];
 }

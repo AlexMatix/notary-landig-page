@@ -52,8 +52,15 @@
 
                 <div class="form-group row">
                     <div class="col-md-12">
-                        <input name="contact" type="text" class="form-control"
-                               placeholder="Escribe la forma de contacto, puede ser tu email o tu número de celular (No es obligatorio)">
+                        <input name="email" type="text" class="form-control"
+                               placeholder="Escribe tu email (No es obligatorio)">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <input name="phone" type="number" class="form-control"
+                               placeholder="Escribe tu celular (No es obligatorio)">
                     </div>
                 </div>
 

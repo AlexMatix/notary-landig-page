@@ -3,6 +3,8 @@
 use App\Http\Controllers\Contact\ContactActionController;
 use App\Http\Controllers\Whastapp\WhatsappWebhookController;
 use App\Http\Controllers\Contact\ContactController;
+use App\Http\Controllers\MailBoxComplaint\MailBoxComplaintActionController;
+use App\Http\Controllers\MailBoxComplaint\MailBoxComplaintController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +31,9 @@ Route::group(['middleware' => ['client']], function () {
     Route::get('contactList', [ContactController:: class, 'index']);
     Route::get('contactList/{contact}', [ContactController:: class, 'show']);
     Route::get('contact/{contact}', [ContactActionController::class, 'changeContactProcess']);
+
+    //MailboxComplaints
+    Route::get('complaintList', [MailBoxComplaintController::class, 'index']);
+    Route::get('complaintList/{complaint}', [MailBoxComplaintController::class, 'show']);
+    Route::get('complaint/{complaint}', [MailBoxComplaintActionController::class, 'changeComplaintProcess']);
 });

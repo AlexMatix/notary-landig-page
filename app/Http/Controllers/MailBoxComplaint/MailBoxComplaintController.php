@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\MailBoxComplaint;
 
 use Illuminate\Http\Request;
-use App\Models\MailBoxComplaint;
+use App\Models\MailboxComplaint;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +17,7 @@ class MailBoxComplaintController extends Controller
     public function index(): JsonResponse
     {
         // $response = MailBoxComplaint::where('process', 0)->orderBy("id", "desc")->paginate(100);
-        $response = \App\Models\MailBoxComplaint::where('process', 0)->orderBy("id", "desc")->paginate(100);
+        $response = MailboxComplaint::where('process', 0)->orderBy("id", "desc")->paginate(100);
         return $this->showList($response);
     }
 
@@ -29,7 +29,7 @@ class MailBoxComplaintController extends Controller
      */
     public function create(Request $request)
     {
-        $mailbox = MailBoxComplaint::create($request->all());
+        $mailbox = MailboxComplaint::create($request->all());
 
         return view('mailbox_complaints')->with('alert', true);
     }
@@ -37,10 +37,10 @@ class MailBoxComplaintController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\MailBoxComplaint  $mailBoxComplaint
+     * @param  \App\Models\MailboxComplaint  $mailBoxComplaint
      * @return \Illuminate\Http\Response
      */
-    public function show(MailBoxComplaint $mailBoxComplaint)
+    public function show(MailboxComplaint $mailBoxComplaint)
     {
         return $this->showOne($mailBoxComplaint);
     }

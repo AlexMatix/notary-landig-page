@@ -16,8 +16,8 @@ class MailBoxComplaintController extends Controller
      */
     public function index(): JsonResponse
     {
-        $response = MailBoxComplaint::where('process', 0)->orderBy("id", "desc")->paginate(100);
-        
+        // $response = MailBoxComplaint::where('process', 0)->orderBy("id", "desc")->paginate(100);
+        $response = \App\Models\MailBoxComplaint::where('process', 0)->orderBy("id", "desc")->paginate(100);
         return $this->showList($response);
     }
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\MailBoxComplaint;
 
 use App\Http\Controllers\Controller;
 use App\Models\MailBoxComplaint;
+use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class MailBoxComplaintController extends Controller
@@ -13,11 +15,15 @@ class MailBoxComplaintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        $response = $this->showList(MailBoxComplaint::where('process', 0)->paginate(100));
-        //dd($response);
-        return $response;
+        try {
+            $response = $this->showList(MailBoxComplaint::where('process', 0)->paginate(100));
+            //dd($response);
+            return $response;
+        } catch (Exception $e) {
+            return $this->showMessage($e->getMessage());
+        }
     }
 
     /**

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\MailBoxComplaint;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\MailBoxComplaint;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class MailBoxComplaintController extends Controller
 {
@@ -35,59 +35,16 @@ class MailBoxComplaintController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\MailBoxComplaint  $mailBoxComplaint
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(MailBoxComplaint $mailBoxComplaint)
     {
-        $mailBoxComplaint = MailBoxComplaint::find($id);
-        return $mailBoxComplaint;
+        return $this->showOne($mailBoxComplaint);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\MailBoxComplaint  $mailBoxComplaint
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(MailBoxComplaint $mailBoxComplaint)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MailBoxComplaint  $mailBoxComplaint
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, MailBoxComplaint $mailBoxComplaint)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MailBoxComplaint  $mailBoxComplaint
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MailBoxComplaint $mailBoxComplaint)
-    {
-        //
-    }
 }

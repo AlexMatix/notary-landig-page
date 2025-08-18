@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Contact;
 
-use App\Http\Controllers\Controller;
 use App\Models\Contact;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\MailBoxComplaintController;
+namespace App\Http\Controllers\MailBoxComplaint;
 
 use App\Http\Controllers\Controller;
 use App\Models\MailBoxComplaint;
@@ -16,7 +16,7 @@ class MailBoxComplaintController extends Controller
      */
     public function index(): JsonResponse
     {
-        $response = $this->showList(MailBoxComplaint::where('process', 0)->orderBy("desc", "id")->paginate(200));
+        $response = $this->showList(MailBoxComplaint::where('process', 0)->orderBy("desc", "id")->paginate(100));
         //dd($response);
         return $response;
     }

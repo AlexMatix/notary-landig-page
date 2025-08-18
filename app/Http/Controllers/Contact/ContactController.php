@@ -17,7 +17,7 @@ class ContactController extends Controller
      */
     public function index(): JsonResponse
     {
-        $response = $this->showList(Contact::where('process',0)->paginate(100));
+        $response = $this->showList(Contact::where('process',0)->orderBy("id", "desc")->paginate(100));
         //dd($response);
         return $response;
     }

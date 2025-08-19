@@ -31,9 +31,10 @@ Route::group(['middleware' => ['client']], function () {
     Route::get('contactList', [ContactController:: class, 'index']);
     Route::get('contactList/{contact}', [ContactController:: class, 'show']);
     Route::get('contact/{contact}', [ContactActionController::class, 'changeContactProcess']);
-
+    Route::get('contact/spam/{contact}', [ContactActionController:: class, 'markAsSpam']);
     //MailboxComplaints
     Route::get('complaintList', [MailBoxComplaintController::class, 'index']);
     Route::get('complaintList/{complaint}', [MailBoxComplaintController::class, 'show']);
     Route::get('complaint/{complaint}', [MailBoxComplaintActionController::class, 'changeComplaintProcess']);
+    Route::get('complaint/spam/{complaint}', [MailBoxComplaintActionController:: class, 'markAsSpam']);
 });

@@ -20,4 +20,16 @@ class MailBoxComplaintActionController extends Controller
             'message' => ''
         ]);
     }
+
+    public function markAsSpam($id): JsonResponse
+    {
+        $mailBoxComplaint = MailBoxComplaint::find($id);
+        $mailBoxComplaint->process = 2;
+        $mailBoxComplaint->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => ''
+        ]);
+    }
 }

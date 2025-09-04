@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class MailboxComplaint extends Model
 {
+
+    const NO_PROCESS = 0;
+    const PROCESS = 1;
+    const SPAM = 2;
     use HasFactory;
 
        protected $fillable = [

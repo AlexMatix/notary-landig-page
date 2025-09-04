@@ -9,6 +9,7 @@ class Contact extends Model
 {
     const NO_PROCESS = 0;
     const PROCESS = 1;
+    const SPAM = 2;
 
     use HasFactory;
 

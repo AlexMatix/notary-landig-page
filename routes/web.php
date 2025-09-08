@@ -23,13 +23,12 @@ Route::get('/', function () {
 Route::post('/contact/cite', [CitesController::class, 'create'])->name('cite-create');
 
 
-Route::get('/services', function () {
-    return view('services')
-    ->with('services', ServicesController::getServices())
-    ->with('verify', false)
-    ->with('textNotification', '');
-})->name('services');
+//Route::get('/services_catalog', [ServicesController::class, 'getServices'])->name('services_catalog');
+Route::get('/services_catalog', [ServicesController::class, 'getOperations'], function () {
+    return view('services_catalog');
+})->name('services_catalog');
 
+// Route::get('/services_catalog', [ServicesController::class, 'getOperations'])->name('services_catalog');
 
 Route::get('/services/quote/{token}/{quoteId}', [ServicesController::class, 'validProjectQuote'])->name('/services/quote/{token}/{quoteId}');
 

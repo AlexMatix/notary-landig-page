@@ -9,8 +9,8 @@ use \Illuminate\Http\Client\Response;
 
 class ServicesController extends Controller
 {
-    private $host = 'https://servicioschimichangas.com/api/projectQuote/verify/';
-    //private $host = 'localhost:8000/api/projectQuote/verify/';
+    //private $host = 'https://servicioschimichangas.com/api/projectQuote/verify/';
+    private $host = 'localhost:8000/api/';
     public static $services = [
         'ACTAS NOTARIALES' => [
             'INFORMACIÓN TESTIMONIAL DE NOMBRE' => [
@@ -379,7 +379,12 @@ class ServicesController extends Controller
     public function validProjectQuote(string $token, int $quoteId)
     {
 
-        $response = Http::get($this->host . $token . "/" . $quoteId);
+        $response = Http::get($this->host . "projectQuote/verify/" . $token . "/" . $quoteId);
+        $responseDocument = Http::get($this->host . "documentCatalog/list");
+        $documents = $responseDocument->object();
+        $documentsMap = collect($documents)->mapWithKeys(function ($item) {
+        return [$item->id => $item->name];
+        });
          //dd($response->object());
         if ($response->status() == 200) {
             $verify = 1;
@@ -404,6 +409,26 @@ class ServicesController extends Controller
             ->with('services', ServicesController::getServices())
             ->with('verify', $verify)
             ->with('textNotification', $textNotification)
-            ->with('quote', $quote);
+            ->with('quote', $quote)
+            ->with('documentsMap', $documentsMap);
+    }
+
+    public function getOperations(){
+        // $response = Http::get($this->host . "operationCatalog/list");
+        // $operations = $response->object();
+
+        $responseCategory = Http::get($this->host . "categoryOperationCatalog/list");
+        $categoryOperations = $responseCategory->object();
+
+        $responseDocument = Http::get($this->host . "documentCatalog/list");
+        $documents = $responseDocument->object();
+
+        $documentsMap = collect($documents)->mapWithKeys(function ($item) {
+        return [$item->id => $item->name];
+        });
+        return view('services_catalog')
+        ->with('categoryOperations', $categoryOperations)
+        ->with('documentsMap', $documentsMap);
+
     }
 }

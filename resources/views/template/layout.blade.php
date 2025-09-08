@@ -74,7 +74,7 @@
                             {{--                                    <li><a href="#">Family Law</a></li>--}}
                             {{--                                </ul>--}}
                             {{--                            </li>--}}
-                            <li><a href="{{route('services')}}" class="nav-link primary-color-text">Servicios</a></li>
+                            <li><a href="{{route('services_catalog')}}" class="nav-link primary-color-text">Servicios</a></li>
                             <li><a href="{{route('us')}}" class="nav-link primary-color-text">¿Quienes somos?</a></li>
                             <li><a href="{{route('contact')}}" class="nav-link primary-color-text">Contactanos</a></li>
                             <li><a href="{{route('mailbox_complaints')}}" class="nav-link primary-color-text">Buzón de quejas</a></li>

@@ -280,3 +280,22 @@ html{
 .mat-slide-toggle-content {
   color: white !important;
 }
+
+ .quote-container .documents-required{
+  padding: 15px 20px 10px 20px;
+  margin-top: 15px;
+  border-top: 2px dashed var(--primary-color); /* Línea punteada de acento */
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.documents-required h4{
+    font-family:'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+
+}
+
+.document-list{
+  font-weight: 200;
+  font-size: 1rem;
+}

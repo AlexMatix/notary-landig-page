@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Http;
 
 class ServicesController extends Controller
 {
-    //private $host = 'https://servicioschimichangas.com/api/projectQuote/verify/';
-    private $host = 'localhost:8000/api/';
+    private $host = 'https://servicioschimichangas.com/api/projectQuote/verify/';
+    // private $host = 'localhost:8000/api/';
     public static $services = [
         'ACTAS NOTARIALES' => [
             'INFORMACIÓN TESTIMONIAL DE NOMBRE' => [

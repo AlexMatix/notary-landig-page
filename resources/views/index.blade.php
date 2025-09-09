@@ -72,8 +72,8 @@
             </div>
 
             <p>
-                Garantizar la eficaz prestación del servicio público del notariado, 
                 para que la población reciba un servicio Notarial pronto, expedito, 
+                Garantizar la eficaz prestación del servicio público del notariado, 
                 profesional y eficiente con imparcialidad a través de cumplir siguientes 
                 principios y valores: Seguridad jurídica, Certeza Jurídica, Estabilidad, 
                 Confiabilidad, Rogación, Imparcialidad, Transparencia, Honestidad, Secrecía, 

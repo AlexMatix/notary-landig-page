@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class ServicesController extends Controller
 {
-    private $host = 'https://servicioschimichangas.com/api/projectQuote/verify/';
+    private $host = 'https://servicioschimichangas.com/api/';
     // private $host = 'localhost:8000/api/';
     public static $services = [
         'ACTAS NOTARIALES' => [
@@ -425,7 +425,7 @@ class ServicesController extends Controller
         return [$item->id => $item->name];
         });
         return view('services_catalog')
-        ->with('categoryOperations', $categoryOperations)
+        ->with('categoryOperations', $categoryOperations ?? [])
         ->with('documentsMap', $documentsMap);
 
     }

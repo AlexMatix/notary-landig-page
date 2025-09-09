@@ -34,7 +34,7 @@
     </div>    
 
     <div class="accordion-container"> 
-        @foreach($categoryOperations as $category)
+        @foreach($categoryOperations as $category) 
             <div class="accordion-element">
                 <div class="accordion-header">
                     <h3>{{ ucwords($category->name ?? 'N/A') }}</h3>

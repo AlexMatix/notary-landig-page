@@ -9,9 +9,8 @@ use Illuminate\Http\JsonResponse;
 
 class MailBoxComplaintActionController extends Controller
 {
-    public function changeComplaintProcess($id): JsonResponse
+    public function changeComplaintProcess(MailboxComplaint $mailBoxComplaint): JsonResponse
     {
-        $mailBoxComplaint = MailBoxComplaint::find($id);
         $mailBoxComplaint->process = 1;
         $mailBoxComplaint->save();
 
@@ -21,9 +20,8 @@ class MailBoxComplaintActionController extends Controller
         ]);
     }
 
-    public function markAsSpam($id): JsonResponse
+    public function markAsSpam(MailboxComplaint $mailBoxComplaint): JsonResponse
     {
-        $mailBoxComplaint = MailBoxComplaint::find($id);
         $mailBoxComplaint->process = 2;
         $mailBoxComplaint->save();
 

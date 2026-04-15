@@ -8,8 +8,8 @@
                 <div class="col-lg-12" style="margin-top: 120px; position: relative; z-index: 2;">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-10 intro text-center text-lg-left">
-                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 <br></strong> Sistema de Cotizaciones</h1>
-                            <p class="lead text-white mb-5" style="font-weight: 300;">En la Notaría Pública Número 4 ponemos a su entera disposición una extensa gama de servicios legales orientados a blindar jurídicamente sus acuerdos comerciales y civiles. Nuestro trato es altamente personalizado y nos adaptamos con total flexibilidad a sus circunstancias y requerimientos operativos.</p>
+                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla<br></strong> Sistema de Cotizaciones</h1>
+                            <p class="lead text-white mb-5" style="font-weight: 300;">En la Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla ponemos a su entera disposición una extensa gama de servicios legales orientados a blindar jurídicamente sus acuerdos comerciales y civiles. Nuestro trato es altamente personalizado y nos adaptamos con total flexibilidad a sus circunstancias y requerimientos operativos.</p>
                         </div>
                     </div>
                 </div>

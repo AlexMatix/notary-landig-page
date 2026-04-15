@@ -8,7 +8,7 @@
                 <div class="col-lg-12" style="margin-top: 120px; position: relative; z-index: 2;">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-10 intro text-center text-lg-left">
-                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 <br> </strong> Identidad y Valores Institucionales</h1>
+                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla<br> </strong> Identidad y Valores Institucionales</h1>
                             <p class="lead text-white mb-5" style="font-weight: 300;">Contamos con un equipo de profesionales altamente capacitados, dispuestos a brindar soluciones eficaces y certeras a sus interrogantes jurídicas. A continuación, presentamos nuestra filosofía y los pilares que rigen nuestro actuar.</p>
                         </div>
                     </div>

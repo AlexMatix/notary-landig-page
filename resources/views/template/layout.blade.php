@@ -107,7 +107,7 @@
                             {{-- empresas actuales. Nuestro servicio es personalizado--}}
                             {{-- y flexible de acuerdo a sus circunstancias. </p>--}}
                         <p align="justify">
-                            La notaría Pública Número 4 se encuentra en Circuito Juan Pablo II 3117 Colonia las Animas
+                            La Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla se encuentra en Circuito Juan Pablo II 3117 Colonia las Animas
                             Puebla Puebla, fundada en el año 2004.
                             El lunes 23 de noviembre de 2009 el periódico oficial de Puebla en su tomo CDXV ser realiza
                             la

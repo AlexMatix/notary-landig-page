@@ -9,7 +9,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-8 intro text-center text-lg-left">
                             <h1 class="text-white name-notary mb-4"><strong>Contáctenos</strong> para recibir atención especializada</h1>
-                            <p class="lead text-white mb-5" style="font-weight: 300;">En la Notaría Pública Número 4 ponemos nuestra experiencia a su entera disposición. Si desea una cita o asesoría, complete el formulario y uno de nuestros expertos jurídicos se pondrá en contacto con usted en breve para guiarle paso a paso.</p>
+                            <p class="lead text-white mb-5" style="font-weight: 300;">En la Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla ponemos nuestra experiencia a su entera disposición. Si desea una cita o asesoría, complete el formulario y uno de nuestros expertos jurídicos se pondrá en contacto con usted en breve para guiarle paso a paso.</p>
                         </div>
                     </div>
                 </div>

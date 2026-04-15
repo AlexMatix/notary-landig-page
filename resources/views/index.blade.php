@@ -41,7 +41,7 @@
                             <p class="text-primary font-weight-bold mb-3"
                                 style="letter-spacing: 1px; font-size: 0.9rem; text-transform: uppercase;">Notario Público
                                 Titular</p>
-                            <p class="text-muted" style="line-height: 1.6;">Dirigiendo la Notaría Pública Número 4 con una
+                            <p class="text-muted" style="line-height: 1.6;">Dirigiendo la Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla con una
                                 trayectoria impecable, garantizando la certeza jurídica en cada uno de los procesos
                                 encomendados por nuestros clientes. Su liderazgo ético y compromiso con la legalidad
                                 aseguran la resolución expedita de cualquier trámite notarial.</p>

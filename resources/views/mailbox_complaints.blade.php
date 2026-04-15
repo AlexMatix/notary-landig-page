@@ -8,7 +8,7 @@
                 <div class="col-lg-12" style="margin-top: 120px; position: relative; z-index: 2;">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-10 intro text-center text-lg-left">
-                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 <br> </strong> Buzón de Quejas y Sugerencias</h1>
+                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla<br> </strong> Buzón de Quejas y Sugerencias</h1>
                             <p class="lead text-white mb-5" style="font-weight: 300;">Garantizar un alto nivel de resguardo y calidad en nuestros servicios es nuestra máxima prioridad. Este espacio confidencial nos permite escuchar sus observaciones y así implementar la mejora continua en todos los niveles operativos.</p>
                         </div>
                     </div>

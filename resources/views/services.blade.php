@@ -2,25 +2,17 @@
 
 @section('front-page')
     <div class="hero overlay" style="background-image: url({{ asset('images/portada1.jpg') }});">
-
+        <div class="hero-executive-gradient"></div>
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-lg-12">
-
+                <div class="col-lg-12" style="margin-top: 120px; position: relative; z-index: 2;">
                     <div class="row align-items-center justify-content-between">
-                        <div class="col-lg-12 intro">
-                            <h1 class="text-white"><strong>Notaría Pública Nº4 <br></strong> Cotización</h1>
-                            <p class="text-white">En la Notaría Pública No. 4 ponemos a su disposición
-                                diferentes servicios para proteger sus tratos con
-                                clientes, proveedores, empleados y prestadores de
-                                servicio. Hemos capacitado a un talentoso grupo de
-                                abogados para atender las necesidades de las
-                                empresas actuales. Nuestro servicio es personalizado
-                                y flexible de acuerdo a sus circunstancias.</p>
+                        <div class="col-lg-10 intro text-center text-lg-left">
+                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 <br></strong> Sistema de Cotizaciones</h1>
+                            <p class="lead text-white mb-5" style="font-weight: 300;">En la Notaría Pública Número 4 ponemos a su entera disposición una extensa gama de servicios legales orientados a blindar jurídicamente sus acuerdos comerciales y civiles. Nuestro trato es altamente personalizado y nos adaptamos con total flexibilidad a sus circunstancias y requerimientos operativos.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -33,7 +25,9 @@
     @if($verify==1)
         @section('Quote-Info')
 
-            <div class ="quote-container" id="quote-section">
+            <div class="site-section bg-light">
+                <div class="container">
+                    <div class="quote-container executive-card modern-shadow" id="quote-section">
                 @if($quote->user->staff != null)
                     <span class = "staff-info font-weight-bold">Asesor/a que creó la cotización: {{$quote->user->staff->full_name}}</span>
                 @endif
@@ -111,7 +105,7 @@
                     
                 @else
                     <div class="alert alert-info mt-4">
-                        No hay detalles de operaciones disponibles para esta cotización.
+                        Por el momento no hay detalles de operaciones desgregados disponibles para esta cotización específica. Por favor, comuníquese con su asesor designado.
                     </div>
                 @endif
 
@@ -131,6 +125,8 @@
                     @endforeach
                 </div>
                 
+                    </div>
+                </div>
             </div>
         @endsection
 
@@ -163,9 +159,11 @@
 @section('content')
     
 
-    <div class="site-section bg-light">
+    <div class="site-section">
         <div class="container">
-            <iframe style="width: 100%; height: 800px" src="{{ asset('files/services_notary.pdf') }}"></iframe>
+            <div class="executive-card overflow-hidden p-0 modern-shadow">
+                <iframe style="width: 100%; height: 800px; border:0;" src="{{ asset('files/services_notary.pdf') }}"></iframe>
+            </div>
         </div>
     </div>
 

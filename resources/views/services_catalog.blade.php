@@ -2,25 +2,17 @@
 
 @section('front-page')
     <div class="hero overlay" style="background-image: url({{ asset('images/portada1.jpg') }});">
-
+        <div class="hero-executive-gradient"></div>
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-lg-12">
-
+                <div class="col-lg-12" style="margin-top: 120px; position: relative; z-index: 2;">
                     <div class="row align-items-center justify-content-between">
-                        <div class="col-lg-12 intro">
-                            <h1 class="text-white"><strong>Notaría Pública Nº4 <br></strong> Servicios</h1>
-                            <p class="text-white">En la Notaría Pública No. 4 ponemos a su disposición
-                                diferentes servicios para proteger sus tratos con
-                                clientes, proveedores, empleados y prestadores de
-                                servicio. Hemos capacitado a un talentoso grupo de
-                                abogados para atender las necesidades de las
-                                empresas actuales. Nuestro servicio es personalizado
-                                y flexible de acuerdo a sus circunstancias.</p>
+                        <div class="col-lg-10 intro text-center text-lg-left">
+                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 <br></strong> Catálogo de Servicios</h1>
+                            <p class="lead text-white mb-5" style="font-weight: 300;">Ofrecemos una gama superior de instrumentos notariales diseñados para formalizar, proteger y dar plena validez a sus actos civiles y operaciones corporativas estratégicas. Nuestro compromiso es garantizar su certeza jurídica con inmediatez y eficacia.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -28,121 +20,63 @@
     </div>
 @endsection
 @section('content')
+    <div class="site-section bg-light">
+        <div class="container">
+            <div class="executive-card modern-shadow mb-5">
+                <div class="accordion-title text-center mb-4">
+                    <h4 class="section-heading" style="color: #0d2b3e;">Explore nuestras categorías jurídicas para consultar el catálogo detallado de servicios notariales</h4>
+                </div>    
 
-    <div class = "accordion-title">
-        <h4>Seleccione la categoría para consultar los servicios que ponemos a su disposición</h4>
-    </div>    
+                <!-- Navegación por Categorías (Tabs) -->
+                <ul class="nav nav-pills mb-4 justify-content-center" id="catalog-tab" role="tablist">
+                    @foreach($categoryOperations as $index => $category)
+                        <li class="nav-item m-1">
+                            <a class="nav-link px-4 py-2 {{ $index == 0 ? 'active' : '' }}" style="border-radius: 30px; font-weight: 500;" id="tab-cat-{{ $index }}" data-toggle="pill" href="#content-cat-{{ $index }}" role="tab" aria-controls="content-cat-{{ $index }}" aria-selected="{{ $index == 0 ? 'true' : 'false' }}">
+                                {{ ucwords($category->name ?? 'N/A') }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
 
-    <div class="accordion-container"> 
-        @foreach($categoryOperations as $category) 
-            <div class="accordion-element">
-                <div class="accordion-header">
-                    <h3>{{ ucwords($category->name ?? 'N/A') }}</h3>
-                    <span class="icon">&#9660;</span> 
-                </div>
-                <div class="accordion-body">
-                    @if (!empty($category->operation))
-                        @foreach($category->operation as $operation)
-                            <div class="sub-accordion-element">
-                                <div class="sub-accordion-header">
-                                    <h4>{{ ucwords($operation->name ?? 'N/A') }}</h4>
-                                    <span class="icon">&#9660;</span> 
-                                </div>
-                                <div class="sub-accordion-body">
-                                    @if (!empty($operation->config) && !empty($operation->config->documents_required))
-                                        <h5>Requisitos:</h5>
-                                        <ul>
-                                            @foreach($operation->config->documents_required as $document)
-                                                <li>
-                                                    {{$documentsMap[$document->id] ?? 'Documento no encontrado'}}
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </div>
+                <!-- Contenido de las Categorías -->
+                <div class="tab-content mt-5" id="catalog-tabContent">
+                    @foreach($categoryOperations as $index => $category)
+                        <div class="tab-pane fade {{ $index == 0 ? 'show active' : '' }}" id="content-cat-{{ $index }}" role="tabpanel" aria-labelledby="tab-cat-{{ $index }}">
+                            <div class="row">
+                                @if (!empty($category->operation))
+                                    @foreach($category->operation as $opIndex => $operation)
+                                        <div class="col-md-6 col-lg-4 mb-4">
+                                            <!-- Tarjeta de Operación -->
+                                            <div class="executive-card h-100 p-4 border" style="box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: transform 0.2s;">
+                                                <h4 class="mb-4" style="color: #0d2b3e; font-size: 1.15rem; font-weight: 600; line-height: 1.4;">{{ ucwords($operation->name ?? 'N/A') }}</h4>
+                                                
+                                                @if (!empty($operation->config) && !empty($operation->config->documents_required))
+                                                    <button class="btn btn-sm d-flex align-items-center justify-content-between w-100" style="background-color: rgba(13, 43, 62, 0.05); border: 1px solid rgba(13, 43, 62, 0.1); color: #0d2b3e; font-weight: 500; border-radius: 8px;" type="button" data-toggle="collapse" data-target="#req-{{ $index }}-{{ $opIndex }}" aria-expanded="false" aria-controls="req-{{ $index }}-{{ $opIndex }}">
+                                                        Ver Requisitos <span class="icon">&#9660;</span>
+                                                    </button>
+                                                    
+                                                    <div class="collapse mt-3" id="req-{{ $index }}-{{ $opIndex }}">
+                                                        <div class="card card-body p-3 bg-light border-0" style="border-radius: 8px;">
+                                                            <ul class="text-left text-muted pl-3 mb-0" style="font-size: 0.9em; list-style: disc;">
+                                                                @foreach($operation->config->documents_required as $document)
+                                                                    <li class="mb-1">{{$documentsMap[$document->id] ?? 'Documento no encontrado'}}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="col-12 text-center text-muted">
+                                        <p>Actualmente no existen operaciones públicas disponibles documentadas bajo esta jerarquía jurídica.</p>
+                                    </div>
+                                @endif
                             </div>
-                        @endforeach
-                    @endif
+                        </div>
+                    @endforeach
                 </div>
-                
-            </div>
-        @endforeach
-    </div>
-
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-        /**
-        * Alterna la clase 'expanded' y ajusta la altura de los elementos del acordeón.
-        * También actualiza la altura de los elementos padres para acomodar el contenido.
-        * @param {HTMLElement} header El encabezado del acordeón (accordion-header o sub-accordion-header).
-        */
-        const toggleAccordion = (header) => {
-            const body = header.nextElementSibling;
-            const isExpanded = header.classList.toggle('expanded');
-        
-            //  Agregamos un pequeño margen extra a la altura calculada
-            const heightBuffer = 20; // Unos píxeles extra para asegurar que no se corte el final
-        
-            // Alterna la altura del elemento actual
-            if (isExpanded) {
-                body.style.maxHeight = (body.scrollHeight + heightBuffer) + "px";
-            } else {
-                body.style.maxHeight = null;
-            }
-
-            // Ajuste de altura para los padres (solución al problema de contenido cortado)
-            let parentBody = header.closest('.accordion-body');
-            if (parentBody) {
-                // Se asegura de que el padre se expanda lo suficiente para mostrar al hijo
-                // También se agrega el buffer aquí
-                parentBody.style.maxHeight = (parentBody.scrollHeight + body.scrollHeight + heightBuffer) + "px";
-            }
-        };
-    
-        // Manejador de eventos único para todos los encabezados del acordeón
-        document.querySelectorAll('.accordion-header, .sub-accordion-header').forEach(header => {
-            header.addEventListener('click', (event) => {
-            
-                const isSubAccordion = header.classList.contains('sub-accordion-header');
-                let parentContainer;
-
-                if (isSubAccordion) {
-                    // Para sub-acordeones, el contenedor padre para cerrar hermanos es el .accordion-body
-                    parentContainer = header.closest('.accordion-body');
-                } else {
-                    // Para acordeones principales, el contenedor padre para cerrar hermanos es el .accordion-container
-                    parentContainer = document.querySelector('.accordion-container');
-                }
-
-                if (!parentContainer) return; 
-            
-                // Cierra todos los elementos hermanos
-                parentContainer.querySelectorAll('.accordion-header, .sub-accordion-header').forEach(otherHeader => {
-                    if (otherHeader !== header && otherHeader.classList.contains('expanded')) {
-                        otherHeader.classList.remove('expanded');
-                        otherHeader.nextElementSibling.style.maxHeight = null;
-
-                        // Ajustar la altura de los padres al cerrar un elemento
-                        // 🕵️‍♀️ Aquí también se necesita ajustar la altura del padre al contraer un elemento hijo
-                        const otherParentBody = otherHeader.closest('.accordion-body');
-                        if(otherParentBody) {
-                            otherParentBody.style.maxHeight = (otherParentBody.scrollHeight - (otherHeader.nextElementSibling.scrollHeight || 0)) + "px";
-                            // Si el resultado es negativo o muy pequeño, lo reseteamos a null o a una altura mínima si se desea
-                            if (parseFloat(otherParentBody.style.maxHeight) < otherParentBody.clientHeight) { // Usa clientHeight para evitar valores negativos si se contrae demasiado
-                                otherParentBody.style.maxHeight = null; // O ajusta a una altura mínima si el padre aún tiene contenido
-                            }
-                        }
-                    }
-                });
-
-            // Llama a la función principal para desplegar el elemento actual
-            toggleAccordion(header);
-        });
-    });
-});
-</script>
 
     {{-- @foreach($operations as $i => $operation)
 
@@ -152,9 +86,11 @@
 
     @endforeach --}}
 
-    <div class="site-section bg-light">
+    <div class="site-section">
         <div class="container">
-            <iframe style="width: 100%; height: 800px" src="{{ asset('files/services_notary.pdf') }}"></iframe>
+            <div class="executive-card overflow-hidden p-0 d-flex align-items-center justify-content-center modern-shadow">
+                <iframe style="width: 100%; height: 800px; border:0;" src="{{ asset('files/services_notary.pdf') }}"></iframe>
+            </div>
         </div>
     </div>
 

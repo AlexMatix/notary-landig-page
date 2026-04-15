@@ -2,18 +2,14 @@
 
 @section('front-page')
     <div class="hero overlay" style="background-image: url({{asset('images/portada1.jpg')}});">
-
+        <div class="hero-executive-gradient"></div>
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-lg-12">
-
+                <div class="col-lg-12" style="margin-top: 120px; position: relative; z-index: 2;">
                     <div class="row align-items-center justify-content-between">
-                        <div class="col-lg-12 intro">
-                            <h1 class="text-white name-notary"><strong> Notaría Pública nº4 </strong></h1>
-                            <p class="text-white"> Todo nuestro personal cuenta con grandes habilidades y capacidades
-                                necesarias para dar solución a cualquier problema o circunstancía que se nos presente, a
-                                continuación presentamos algunos de nuestros colaboradores
-                            </p>
+                        <div class="col-lg-10 intro text-center text-lg-left">
+                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 <br> </strong> Identidad y Valores Institucionales</h1>
+                            <p class="lead text-white mb-5" style="font-weight: 300;">Contamos con un equipo de profesionales altamente capacitados, dispuestos a brindar soluciones eficaces y certeras a sus interrogantes jurídicas. A continuación, presentamos nuestra filosofía y los pilares que rigen nuestro actuar.</p>
                         </div>
                     </div>
                 </div>
@@ -26,62 +22,45 @@
     <div class="site-section bg-light">
         <div class="container">
 
-            <div class="mb-5 text-center">
-                <h2 class="section-heading"><strong class="text-black"> Misión </strong></h2>
+            <div class="row">
+                <!-- Mision -->
+                <div class="col-lg-4 mb-4">
+                    <div class="executive-card text-center d-flex flex-column h-100">
+                        <span class="icon-executive icon-shield"></span>
+                        <h3 class="section-heading mb-4"><strong class="text-black"> Misión </strong></h3>
+                        <p class="text-muted" align="justify">
+                            Garantizar una prestación eficaz del servicio público notarial, asegurando que la ciudadanía reciba atención pronta, profesional e imparcial. Actuamos estrictamente sustentados en los pilares de la seguridad e integridad jurídica, transparencia, honestidad e independencia institucional.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Vision -->
+                <div class="col-lg-4 mb-4">
+                    <div class="executive-card text-center d-flex flex-column h-100">
+                        <span class="icon-executive icon-eye"></span>
+                        <h3 class="section-heading mb-4"><strong class="text-black"> Visión </strong></h3>
+                        <p class="text-muted" align="justify">
+                            Consolidarnos como la Notaría Pública de máxima referencia y confianza en el Estado de Puebla, distinguiéndonos por la excelencia operativa. Nuestro compromiso prioritario es brindar asesoría y soporte transparente, garantizando certeza en cada acto notarial y agilizando todos los trámites legales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Politica de Calidad -->
+                <div class="col-lg-4 mb-4">
+                    <div class="executive-card text-center d-flex flex-column h-100">
+                        <span class="icon-executive icon-check_circle"></span>
+                        <h3 class="section-heading mb-4"><strong class="text-black"> Política de Calidad </strong></h3>
+                        <p class="text-muted" align="justify">
+                            Ejecutamos nuestra encomienda bajo los más altos estándares de rigor técnico, buscando la satisfacción del cliente y la mejora continua del sistema:
+                        </p>
+                        <ul class="text-left text-muted pl-4" style="font-size: 0.9em; list-style: disc;">
+                            <li>Estandarización legal de actas y criterios operativos.</li>
+                            <li>Infraestructura de vanguardia y formación continua del talento.</li>
+                            <li>Innovación tecnológica y sistematización de procesos.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            <p>
-                Garantizar la eficaz prestación del servicio público del notariado, 
-                para que la población reciba un servicio Notarial pronto, expedito, 
-                profesional y eficiente con imparcialidad a través de cumplir siguientes 
-                principios y valores: Seguridad jurídica, Certeza Jurídica, Estabilidad, 
-                Confiabilidad, Rogación, Imparcialidad, Transparencia, Honestidad, Secrecía, 
-                Profesionalismo, Independencia, Obligatoriedad del servicio, Responsabilidad e Inmediación. 
-            </p>
-
-            <div class="mb-5 text-center mt-5">
-                <h2 class="section-heading"><strong class="text-black"> Visión </strong></h2>
-            </div>
-
-            <p>
-                Ser la Notaría Pública de referencia en Puebla, destacándonos por la excelencia en la 
-                prestación del servicio público del notariado, nuestro compromiso es ofrecer un servicio  eficiente, 
-                transparente y accesible asegurando la integridad y seguridad en cada acto notarial, 
-                así como crear las medidas necesarias para facilitar la actividad notarial a fin de que la 
-                prestación del servicio se desarrolle en total libertad y expeditez para la persona 
-                usuario del servicio notarial, cumpliendo con el derecho al servicio del bien y la paz en el
-                estado de Puebla (Referencia artículo 4 ley del notariado).
-
-            </p>
-
-            <div class="mb-5 text-center mt-5">
-                <h2 class="section-heading">Política de <strong class="text-black"> Calidad </strong></h2>
-            </div>
-
-            <p class="text-justify">
-                La Notaría Pública número 4, con sede en la ciudad de Puebla, México, 
-                se compromete a brindar una eficaz prestación del servicio público del notariado,
-                y que sean prestados con profesionalismo y ética. Para ello, la notaría 
-                se compromete a los siguientes puntos:
-            <ul>
-                <li>
-                    Estandarización de los formatos de Actas Notariales y Escrituras.
-                </li>
-
-                <li>
-                    Mejora de instalaciones
-                </li>
-
-                <li>
-                    Capacitación a personal nuevo
-                </li>
-
-                <li>
-                    Implementación de un sistema computacional a medida que logre modelar todos los procesos de la notaría.
-                </li>
-
-            </ul>
-            </p>
         </div>
     </div>
 

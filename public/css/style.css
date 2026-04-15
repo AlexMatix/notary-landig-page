@@ -1450,6 +1450,199 @@ h1, h2, h3, h4, h5,
     bottom: 0;
     z-index: 0;
 }
+.name-notary {
+    font-weight: 1000 !important;
+    font-size: 70px !important;
+}
+
+.master-norma {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
+    0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12),
+    0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .image-logo {
+        width: 60% !important;
+    }
+
+    .name-notary {
+        font-weight: 900 !important;
+        font-size: 50px !important;
+    }
+}
+
+/* Estilos para el acordeón de operaciones en Servicios */
+
+.accordion-title h4{
+    text-align: center;
+    margin: 0;
+    padding-top: 30px;
+    font-size: 1.7em;
+    font-family:'Segoe UI', Arial, sans-serif;
+    padding-bottom: 20px;
+}
+
+.accordion-container {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Estilos para cada elemento*/
+.accordion-element {
+    border-bottom: 1px solid #ccc;
+}
+
+.accordion-element:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para el header*/
+.accordion-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0d2b3e;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sub-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #2c465a;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #1a4966;
+}
+
+.sub-accordion-header:hover {
+    background-color: #285c7c;
+
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family:'Segoe UI', Arial, sans-serif;
+    color: #dfc356;
+}
+
+.sub-accordion-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family:'Segoe UI', Arial, sans-serif;
+    color: #f0f0f0;
+}
+
+
+.icon {
+    color: #dfc356;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.sub-accordion-header .icon{
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+
+/* Estilos para el body */
+.accordion-body, .sub-accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 20px;
+}
+
+/* ------------------------------------------------------------- */
+/* Logic for the active (expanded) state */
+/* ------------------------------------------------------------- */
+
+/* When the header has the 'expanded' class, rotate the icon */
+.accordion-header.expanded .icon,
+.sub-accordion-header.expanded .icon {
+    transform: rotate(-180deg);
+}
+
+/* When the header has the 'expanded' class, show the body */
+.accordion-header.expanded + .accordion-body,
+.sub-accordion-header.expanded + .sub-accordion-body {
+    max-height: 1000px; /* A value large enough to fit all content */
+    padding: 20px;
+}
+
+/* Specific styling for nested accordion elements */
+.sub-accordion-element {
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.sub-accordion-body ul {
+    list-style: disc;
+    padding: 0;
+    margin: 0;
+}
+
+.sub-accordion-body li {
+    padding: 8px 0;
+    color: #555;
+    font-size: 0.8rem;
+    font-family: Arial, sans-serif;
+}
+
+.sub-accordion-body h5 {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+
+/* Rediseño Ejecutivo - Clases Nuevas Puras CSS */
+.executive-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(13, 43, 62, 0.05);
+}
+.executive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(13, 43, 62, 0.1);
+}
+
+.modern-shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.hero-executive-gradient {
+    background: linear-gradient(135deg, rgba(13, 43, 62, 0.65) 0%, rgba(13, 43, 62, 0.30) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
 
 .icon-executive {
     font-size: 3rem;
@@ -1505,11 +1698,16 @@ h1, h2, h3, h4, h5,
 .delay-600 { animation-delay: 0.6s; }
 
 /* Menú Ejecutivo Centrado (Transparente con texto blanco) */
-.executive-menu > li {
+.site-navbar .executive-menu {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+.site-navbar .executive-menu > li {
     display: inline-block;
     margin: 0 15px;
 }
-.executive-menu > li > a {
+.site-navbar .executive-menu > li > a {
     color: #ffffff !important;
     font-weight: 500;
     font-size: 0.95rem;
@@ -1519,7 +1717,7 @@ h1, h2, h3, h4, h5,
     position: relative;
     transition: color 0.3s ease;
 }
-.executive-menu > li > a::after {
+.site-navbar .executive-menu > li > a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1529,11 +1727,11 @@ h1, h2, h3, h4, h5,
     background-color: #fee2b3;
     transition: width 0.3s ease;
 }
-.executive-menu > li > a:hover {
+.site-navbar .executive-menu > li > a:hover {
     color: #fee2b3 !important;
 }
-.executive-menu > li > a:hover::after,
-.executive-menu > li > a.active::after {
+.site-navbar .executive-menu > li > a:hover::after,
+.site-navbar .executive-menu > li > a.active::after {
     width: 100%;
 }
 

@@ -123,10 +123,10 @@
         </div>
     </div>
 
-    <div class="site-section overflow-hidden" id="agendar-cita">
+    <div class="site-section" id="agendar-cita">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-lg-6 mb-5 animate-fade-in-up delay-100">
+                <div class="col-12 col-md-12 col-lg-6 mb-5 animate-fade-in-up delay-100">
                     <h2 class="mb-4 section-heading" style="line-height: 1.4;">A su plena disposición <br><strong>Soluciones
                             Notariales</strong></h2>
                     <p class="text-muted" align="justify" style="font-size: 1.1rem; line-height: 1.8;">Las organizaciones
@@ -135,7 +135,7 @@
                         respaldo legal. Nuestro equipo de expertos está capacitado para blindar su patrimonio en todo
                         momento.</p>
                 </div>
-                <div class="col-md-12 col-lg-6 animate-fade-in-up delay-200">
+                <div class="col-12 col-md-12 col-lg-6 animate-fade-in-up delay-200">
                     @if($alert)
                         <div class="alert alert-warning" role="alert">
                             <strong>Gracias por comunicarse con nosotros.</strong> Uno de nuestros asesores jurídicos analizará
@@ -146,25 +146,25 @@
                         @csrf
                         <h3 class="mb-4 text-center">Agenda su cita</h3>
                         <div class="row align-items-center">
-                            <div class="mb-3 mb-md-4 col-md-12">
+                            <div class="mb-3 mb-md-4 col-12 col-md-12">
                                 <input required name="name" type="text" class="form-control" placeholder="Nombre">
                             </div>
-                            <div class="mb-3 mb-md-4 col-md-12">
+                            <div class="mb-3 mb-md-4 col-12 col-md-12">
                                 <input required name="email" type="email" class="form-control" placeholder="Correo">
                             </div>
 
-                            <div class="mb-3 mb-md-4 col-md-12">
+                            <div class="mb-3 mb-md-4 col-12 col-md-12">
                                 <input required name="phone" type="number" class="form-control" placeholder="Telefono">
                             </div>
 
-                            <div class="mb-3 mb-md-4 col-md-12">
+                            <div class="mb-3 mb-md-4 col-12 col-md-12">
                                 <div class="form-control-wrap">
                                     <input required name="cite" type="text" id="cf-4" placeholder="Selecciona una fecha"
                                         class="form-control datepicker px-3">
                                     <span class="icon icon-date_range" style="color: #0d2b3e;"></span>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-3">
+                            <div class="col-12 col-md-12 mt-3">
                                 <input type="submit" value="Contactar Notaría" class="btn btn-primary btn-block py-3">
                             </div>
                         </div>

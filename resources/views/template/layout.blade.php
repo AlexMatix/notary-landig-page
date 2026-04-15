@@ -37,10 +37,18 @@
         <div class="site-mobile-menu site-navbar-target">
             <div class="site-mobile-menu-header">
                 <div class="site-mobile-menu-close mt-3">
-                    <span class="icon-close2 js-menu-toggle"></span>
+                    <span class="icon-close2 js-menu-toggle" onclick="document.body.classList.remove('offcanvas-menu'); return false;" style="cursor:pointer;"></span>
                 </div>
             </div>
-            <div class="site-mobile-menu-body"></div>
+            <div class="site-mobile-menu-body">
+                <ul class="site-nav-wrap">
+                    <li><a href="{{route('index')}}" class="nav-link">Inicio</a></li>
+                    <li><a href="{{route('services_catalog')}}" class="nav-link">Servicios</a></li>
+                    <li><a href="{{route('us')}}" class="nav-link">Identidad</a></li>
+                    <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de Reportes</a></li>
+                    <li><a href="{{route('contact')}}" class="nav-link">Contactar</a></li>
+                </ul>
+            </div>
         </div>
 
 
@@ -59,7 +67,7 @@
                     <!-- Navegación Centrada -->
                     <div class="col text-center d-none d-lg-block">
                         <nav class="site-navigation position-relative" role="navigation">
-                            <ul class="site-menu main-menu js-clone-nav d-inline-block p-0 m-0 executive-menu">
+                            <ul class="site-menu main-menu js-clone-nav executive-menu">
                                 <li><a href="{{route('index')}}" class="nav-link">Inicio</a></li>
                                 <li><a href="{{route('services_catalog')}}" class="nav-link">Servicios</a></li>
                                 <li><a href="{{route('us')}}" class="nav-link">Identidad</a></li>
@@ -74,8 +82,8 @@
                     </div>
                     
                     <!-- Menú Móvil -->
-                    <div class="col-auto d-inline-block d-lg-none">
-                        <a href="#" class="site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-white"></span></a>
+                    <div class="col-auto d-inline-block d-lg-none" style="z-index: 9999; position: relative;">
+                        <a href="javascript:void(0)" onclick="document.body.classList.toggle('offcanvas-menu'); return false;" class="site-menu-toggle py-5 d-block"><span class="icon-menu h3 text-white"></span></a>
                     </div>
 
                 </div>

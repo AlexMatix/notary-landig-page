@@ -4,6 +4,7 @@ use App\Http\Controllers\Cite\CitesController;
 use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\MailBoxComplaint\MailBoxComplaintController;
 use App\Http\Controllers\Services\ServicesController;
+use App\Http\Controllers\Expediente\ExpedienteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,9 @@ Route::get('/mailbox_complaints', function () {
 })->name('mailbox_complaints');
 Route::post('/mailbox_complaints/create', [MailBoxComplaintController::class, 'create'])->name('mailbox-create');
 
+// Rutas de Vinculación y Proxy de Expedientes (Conexión a ERP)
+Route::get('/expediente/vincular/{token}', [ExpedienteController::class, 'showWizard'])->name('expediente.link');
+Route::post('/ajax/expediente/verify-rfc', [ExpedienteController::class, 'verifyRfc']);
+Route::post('/ajax/expediente/link', [ExpedienteController::class, 'linkGrantor']);
+Route::get('/ajax/expediente/{token}/documents', [ExpedienteController::class, 'getDocuments']);
+Route::post('/ajax/expediente/upload', [ExpedienteController::class, 'uploadDocument']);

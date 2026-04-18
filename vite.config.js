@@ -30,6 +30,7 @@ export default defineConfig({
                 'resources/js/bootstrap-datepicker.min.js',
                 'resources/js/aos.js',
                 'resources/js/main.js',
+                'resources/js/expediente-link.js',
                 //IMAGES
                 'resources/images/logo.png',
                 'resources/images/portada.png',

@@ -37,7 +37,9 @@
         <div class="site-mobile-menu site-navbar-target">
             <div class="site-mobile-menu-header">
                 <div class="site-mobile-menu-close mt-3">
-                    <span class="icon-close2 js-menu-toggle" onclick="document.body.classList.remove('offcanvas-menu'); return false;" style="cursor:pointer;"></span>
+                    <span class="icon-close2 js-menu-toggle"
+                        onclick="document.body.classList.remove('offcanvas-menu'); return false;"
+                        style="cursor:pointer;"></span>
                 </div>
             </div>
             <div class="site-mobile-menu-body">
@@ -60,7 +62,8 @@
                     <div class="col-auto">
                         <div class="site-logo">
                             <a href="{{route('index')}}"><img class="image-logo" src="{{asset('images/logo.png')}}"
-                                    alt="Notaría 4" style="height: 65px; width: auto; object-fit: contain; transition: transform 0.3s ease;"></a>
+                                    alt="Notaría 4"
+                                    style="height: 65px; width: auto; object-fit: contain; transition: transform 0.3s ease;"></a>
                         </div>
                     </div>
 
@@ -71,19 +74,23 @@
                                 <li><a href="{{route('index')}}" class="nav-link">Inicio</a></li>
                                 <li><a href="{{route('services_catalog')}}" class="nav-link">Servicios</a></li>
                                 <li><a href="{{route('us')}}" class="nav-link">Identidad</a></li>
-                                <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de Reportes</a></li>
+                                <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de Reportes</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
 
                     <!-- Botón Derecha -->
                     <div class="col-auto d-none d-lg-block text-right">
-                         <a href="{{route('contact')}}" class="btn btn-executive-nav rounded-pill px-4 py-2">Contactar</a>
+                        <a href="{{route('contact')}}"
+                            class="btn btn-executive-nav rounded-pill px-4 py-2">Contactar</a>
                     </div>
-                    
+
                     <!-- Menú Móvil -->
                     <div class="col-auto d-inline-block d-lg-none" style="z-index: 9999; position: relative;">
-                        <a href="javascript:void(0)" onclick="document.body.classList.toggle('offcanvas-menu'); return false;" class="site-menu-toggle py-5 d-block"><span class="icon-menu h3 text-white"></span></a>
+                        <a href="javascript:void(0)"
+                            onclick="document.body.classList.toggle('offcanvas-menu'); return false;"
+                            class="site-menu-toggle py-5 d-block"><span class="icon-menu h3 text-white"></span></a>
                     </div>
 
                 </div>
@@ -107,7 +114,8 @@
                             {{-- empresas actuales. Nuestro servicio es personalizado--}}
                             {{-- y flexible de acuerdo a sus circunstancias. </p>--}}
                         <p align="justify">
-                            La Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla se encuentra en Circuito Juan Pablo II 3117 Colonia las Animas
+                            La Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad
+                            Puebla se encuentra en Circuito Juan Pablo II 3117 Colonia las Animas
                             Puebla Puebla, fundada en el año 2004.
                             El lunes 23 de noviembre de 2009 el periódico oficial de Puebla en su tomo CDXV ser realiza
                             la
@@ -135,64 +143,15 @@
                             <div class="col-lg-6">
                                 <h2 class="footer-heading mb-4">Enlaces de interes</h2>
                                 <ul class="list-unstyled">
-                                    {{-- <li><a href="#">Nosotros</a></li>--}}
-                                    {{-- <li><a href="#">Testimonios</a></li>--}}
                                     <li><a href="{{route('mailbox_complaints')}}">Buzón de quejas</a></li>
                                     <li><a href="{{route('us')}}">Política de Calidad</a></li>
                                     <li><a href="{{route('contact')}}">Contactanos</a></li>
                                 </ul>
                             </div>
-                            {{-- <div class="col-lg-3">--}}
-                                {{-- <h2 class="footer-heading mb-4">Resources</h2>--}}
-                                {{-- <ul class="list-unstyled">--}}
-                                    {{-- <li><a href="#">About Us</a></li>--}}
-                                    {{-- <li><a href="#">Testimonials</a></li>--}}
-                                    {{-- <li><a href="#">Terms of Service</a></li>--}}
-                                    {{-- <li><a href="#">Privacy</a></li>--}}
-                                    {{-- <li><a href="#">Contact Us</a></li>--}}
-                                    {{-- </ul>--}}
-                                {{-- </div>--}}
-                            {{-- <div class="col-lg-3">--}}
-                                {{-- <h2 class="footer-heading mb-4">Support</h2>--}}
-                                {{-- <ul class="list-unstyled">--}}
-                                    {{-- <li><a href="#">About Us</a></li>--}}
-                                    {{-- <li><a href="#">Testimonials</a></li>--}}
-                                    {{-- <li><a href="#">Terms of Service</a></li>--}}
-                                    {{-- <li><a href="#">Privacy</a></li>--}}
-                                    {{-- <li><a href="#">Contact Us</a></li>--}}
-                                    {{-- </ul>--}}
-                                {{-- </div>--}}
-                            {{-- <div class="col-lg-3">--}}
-                                {{-- <h2 class="footer-heading mb-4">Company</h2>--}}
-                                {{-- <ul class="list-unstyled">--}}
-                                    {{-- <li><a href="#">About Us</a></li>--}}
-                                    {{-- <li><a href="#">Testimonials</a></li>--}}
-                                    {{-- <li><a href="#">Terms of Service</a></li>--}}
-                                    {{-- <li><a href="#">Privacy</a></li>--}}
-                                    {{-- <li><a href="#">Contact Us</a></li>--}}
-                                    {{-- </ul>--}}
-                                {{-- </div>--}}
+
                         </div>
                     </div>
                 </div>
-                {{-- <div class="row pt-5 mt-5 text-center">--}}
-                    {{-- <div class="col-md-12">--}}
-                        {{-- <div class="border-top pt-5">--}}
-                            {{-- <p>--}}
-                                {{--
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--}}
-                                {{-- Copyright &copy;
-                                <script>document.write(new Date().getFullYear());</script>--}}
-                                {{-- All rights reserved | This template is made with <i class="icon-heart text-danger"
-                                    --}} {{-- aria-hidden="true"></i> by <a--}} {{-- href="https://colorlib.com"
-                                    target="_blank">Colorlib</a>--}}
-                                    {{--
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->--}}
-                                    {{--
-                            </p>--}}
-                            {{-- </div>--}}
-                        {{-- </div>--}}
-                    {{-- </div>--}}
             </div>
         </footer>
 
@@ -222,6 +181,7 @@
 
     <script src="{{asset('js/main.js')}}"></script>
 
+    @yield('scripts')
 </body>
 
 </html>

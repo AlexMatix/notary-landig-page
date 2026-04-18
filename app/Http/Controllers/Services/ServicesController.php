@@ -381,25 +381,17 @@ class ServicesController extends Controller
         $responseDocument = Http::get($this->host . "documentCatalog/list");
         $documents = $responseDocument->object();
         $documentsMap = collect($documents)->mapWithKeys(function ($item) {
-        return [$item->id => $item->name];
+            return [$item->id => $item->name];
         });
-         //dd($response->object());
         if ($response->status() == 200) {
             $verify = 1;
             $quote = $response->object();
-            //dd($quote);
             $textNotification = "";
-
-
-            //Objeto quote
-            // $quoteResponse = Http::get($this->host . $quoteid);
-            // $quote = $quoteResponse->object();
-            // $quoteDetails = isset($quote->data) ? $quote->data : null;
         } else {
             $verify = 2;
             $textNotification = 'Esta cotización no fue realizada por ningún de nuestros
                     colaboradores, por favor verifique la información contactandote con nosotros.';
-            $quote = '';        
+            $quote = '';
         }
 
 
@@ -411,7 +403,8 @@ class ServicesController extends Controller
             ->with('documentsMap', $documentsMap);
     }
 
-    public function getOperations(){
+    public function getOperations()
+    {
         // $response = Http::get($this->host . "operationCatalog/list");
         // $operations = $response->object();
 
@@ -422,11 +415,11 @@ class ServicesController extends Controller
         $documents = $responseDocument->object();
 
         $documentsMap = collect($documents)->mapWithKeys(function ($item) {
-        return [$item->id => $item->name];
+            return [$item->id => $item->name];
         });
         return view('services_catalog')
-        ->with('categoryOperations', $categoryOperations ?? [])
-        ->with('documentsMap', $documentsMap);
+            ->with('categoryOperations', $categoryOperations ?? [])
+            ->with('documentsMap', $documentsMap);
 
     }
 }

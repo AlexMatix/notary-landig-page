@@ -377,9 +377,12 @@ class ServicesController extends Controller
     public function validProjectQuote(string $token, int $quoteId)
     {
 
-        $response = Http::get($this->host . "projectQuote/verify/" . $token . "/" . $quoteId);
-        $responseDocument = Http::get($this->host . "documentCatalog/list");
+        $response = Http::withoutVerifying()->get($this->host . "projectQuote/verify/" . $token . "/" . $quoteId);
+        $responseDocument = Http::withoutVerifying()->get($this->host . "documentCatalog/list");
         $documents = $responseDocument->object();
+        if (!is_iterable($documents)) {
+            $documents = [];
+        }
         $documentsMap = collect($documents)->mapWithKeys(function ($item) {
             return [$item->id => $item->name];
         });
@@ -408,11 +411,14 @@ class ServicesController extends Controller
         // $response = Http::get($this->host . "operationCatalog/list");
         // $operations = $response->object();
 
-        $responseCategory = Http::get($this->host . "categoryOperationCatalog/list");
+        $responseCategory = Http::withoutVerifying()->get($this->host . "categoryOperationCatalog/list");
         $categoryOperations = $responseCategory->object();
 
-        $responseDocument = Http::get($this->host . "documentCatalog/list");
+        $responseDocument = Http::withoutVerifying()->get($this->host . "documentCatalog/list");
         $documents = $responseDocument->object();
+        if (!is_iterable($documents)) {
+            $documents = [];
+        }
 
         $documentsMap = collect($documents)->mapWithKeys(function ($item) {
             return [$item->id => $item->name];

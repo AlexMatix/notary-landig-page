@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-04T00:00:00Z",
+  "title": "Design System: Notaría 4 — Sitio Público",
+  "extensions": {
+    "colorMeta": {
+      "primary-navy": {
+        "role": "primary",
+        "displayName": "Notary Navy",
+        "canonical": "#0d2b3e",
+        "inheritedFrom": "erp-frontend/DESIGN.md colors.primary-navy",
+        "tonalRamp": ["#04121b", "#071a28", "#0a2231", "#0d2b3e", "#1a4966", "#2c465a", "#7f96a6", "#d3dbe1"]
+      },
+      "accent-gold": {
+        "role": "secondary",
+        "displayName": "Accent Gold",
+        "canonical": "#dfc356",
+        "inheritedFrom": "erp-frontend/DESIGN.md colors.accent-gold",
+        "contrastNotes": "8.43:1 sobre navy · 1.74:1 sobre blanco. Sólo carga texto sobre oscuro.",
+        "tonalRamp": ["#3d340f", "#6b5b1c", "#9a842a", "#d2ae3c", "#dfc356", "#e9d489", "#f2e6bb", "#faf5e4"]
+      },
+      "brass": {
+        "role": "secondary",
+        "displayName": "Brass",
+        "canonical": "#9a842a",
+        "derivedFrom": "accent-gold tonalRamp[2]",
+        "contrastNotes": "3.68:1 sobre blanco — cumple el 3:1 de WCAG 1.4.11 para gráficos no textuales. Reglas y marcas de lista únicamente, nunca texto."
+      },
+      "ink-slate": {
+        "role": "neutral",
+        "displayName": "Ink Slate",
+        "canonical": "#364d59",
+        "contrastNotes": "8.89:1 sobre blanco",
+        "tonalRamp": ["#111a1e", "#1e2b32", "#2a3d46", "#364d59", "#5b7784", "#8ba3ad", "#bccbd2", "#e4eaed"]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#5b7784",
+        "derivedFrom": "ink-slate tonalRamp[4]",
+        "contrastNotes": "4.75:1 sobre blanco. Sustituye al #6c757d de Bootstrap."
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Warm Canvas",
+        "canonical": "#f4f7f6",
+        "tonalRamp": ["#1d2120", "#2f3634", "#4a5450", "#6d7a75", "#97a49f", "#c2ccc8", "#e2e9e6", "#f4f7f6"]
+      },
+      "accent-gold-dark": { "role": "secondary", "displayName": "Accent Gold Dark", "canonical": "#d2ae3c", "contrastNotes": "2.13:1 sobre blanco: no es color de texto en superficie clara." },
+      "navy-deep": { "role": "primary", "displayName": "Navy Deep", "canonical": "#071a28" },
+      "navy-mid": { "role": "primary", "displayName": "Navy Mid", "canonical": "#2c465a" },
+      "navy-hover": { "role": "primary", "displayName": "Navy Hover", "canonical": "#1a4966" },
+      "surface-white": { "role": "neutral", "displayName": "Surface White", "canonical": "#ffffff" },
+      "surface-muted": { "role": "neutral", "displayName": "Surface Muted", "canonical": "#f8f9fa" },
+      "hairline-navy": { "role": "neutral", "displayName": "Hairline Navy", "canonical": "rgba(13, 43, 62, 0.12)", "contrastNotes": "Enmienda: el valor anterior 0.05 daba 1.03:1 sobre blanco, es decir, era invisible." },
+      "hairline-navy-strong": { "role": "neutral", "displayName": "Hairline Navy Strong", "canonical": "rgba(13, 43, 62, 0.18)" },
+      "hairline-onnavy": { "role": "neutral", "displayName": "Hairline sobre navy", "canonical": "rgba(255, 255, 255, 0.16)" },
+      "danger-red": { "role": "tertiary", "displayName": "Danger Red", "canonical": "#dc3545" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Título de cada portada. Uno por página, máximo 17ch. Playfair sólo carga 400 y 700." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de sección y nombres de las fedatarias." },
+      "title": { "displayName": "Title", "purpose": "Pasos del wizard, encabezados de formulario, títulos de tarjeta. Siempre Inter, nunca serif." },
+      "lede": { "displayName": "Lede", "purpose": "Párrafo bajo el display. Máximo 46ch." },
+      "body": { "displayName": "Body", "purpose": "Contenido general. Máximo 68ch, con hyphens: auto." },
+      "label": { "displayName": "Label", "purpose": "Cargos, enlaces de menú, cabeceras de la banda de acreditación. Versalitas." },
+      "icon": { "displayName": "Icon", "purpose": "icomoon y flaticon autoalojadas. Se dimensionan por font-size, siguen su propia escala." }
+    },
+    "shadows": [
+      { "name": "raise", "value": "0 1px 2px rgba(13,43,62,0.06), 0 2px 6px rgba(13,43,62,0.05)", "purpose": "Reposo elevado de contenedores de medios y del panel del wizard." },
+      { "name": "lift", "value": "0 4px 10px rgba(13,43,62,0.06), 0 14px 30px rgba(13,43,62,0.10)", "purpose": "Reservada. Ningún contenedor la usa en reposo." },
+      { "name": "float", "value": "0 8px 16px rgba(13,43,62,0.07), 0 26px 52px rgba(13,43,62,0.12)", "purpose": "Retratos de las fedatarias." },
+      { "name": "gold-glow", "value": "0 2px 6px rgba(154,132,42,0.22), 0 8px 20px rgba(210,174,60,0.28)", "purpose": "Hover del botón primario. Única sombra de color; anclada en Brass para que lea como sombra del propio botón." },
+      { "name": "on-photo", "value": "0 2px 4px rgba(4,18,27,0.24), 0 14px 34px rgba(4,18,27,0.30)", "purpose": "CTA sobre la fotografía del hero. Teñida con el paso más oscuro de la rampa navy." },
+      { "name": "focus-ring", "value": "0 0 0 3px rgba(223,195,86,0.45), 0 0 0 4px rgba(13,43,62,0.55)", "purpose": "Campo enfocado. El navy carga el 3:1 de WCAG 2.4.11, el oro carga la marca." }
+    ],
+    "motion": [
+      { "name": "ease-state", "value": "200ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Toda transición de estado: hover de botón, subrayado de menú, borde de campo." },
+      { "name": "ease-pen", "value": "cubic-bezier(0.22, 0.85, 0.25, 1)", "purpose": "La Rúbrica. Salida rápida y asentamiento largo, como una pluma." },
+      { "name": "rubrica", "value": "n4-rubrica 900ms var(--n4-ease-pen) 620ms forwards", "purpose": "El único momento autoral del sitio: el trazo dorado bajo el nombre de la notaría." }
+    ],
+    "gradients": [
+      { "name": "hero-scrim", "value": "linear-gradient(to top, rgba(13,43,62,.78) 0%, rgba(13,43,62,.64) 22%, rgba(13,43,62,.18) 58%, rgba(13,43,62,0) 82%), linear-gradient(100deg, rgba(13,43,62,.50) 0%, rgba(13,43,62,.34) 38%, rgba(13,43,62,.12) 66%, rgba(13,43,62,.06) 100%)", "purpose": "Dos gradientes navy en un elemento: el vertical sostiene la banda de texto, el diagonal deja respirar la señalética del edificio en la esquina superior derecha." },
+      { "name": "navbar-falloff", "value": "linear-gradient(to bottom, rgba(13,43,62,.55) 0%, rgba(13,43,62,.20) 46%, rgba(13,43,62,0) 100%)", "purpose": "44px bajo la barra. Sustituye a un box-shadow negro al 90%: la barra termina, no se corta." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "576px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "992px" },
+      { "name": "xl", "value": "1200px" }
+    ],
+    "coupling": {
+      "inheritsFrom": "erp-frontend/DESIGN.md",
+      "sharedTokens": ["primary-navy", "accent-gold", "accent-gold-dark"],
+      "sharedTypefaces": ["Playfair Display", "Inter"],
+      "doesNotInherit": [
+        ".o2c-badge / .o2c-chip / .o2c-count-chip",
+        ".notary-audit-chip / .notary-legal-card",
+        "tr.pld-row--*",
+        "--o2c-* custom property contract (o2c_core)",
+        "body.dark-theme y todo el modo oscuro",
+        "The Absolute Semantics Rule"
+      ],
+      "reason": "El ERP opera cientos de registros por día con estado de cumplimiento visible; el sitio público resuelve una decisión por pantalla. Compartir tokens mantiene la marca; compartir componentes de estado importaría ansiedad legal a una superficie de recepción.",
+      "namespace": "--n4-* / .n4-*, deliberadamente distinto de --o2c-* para que no exista una segunda fuente de verdad del contrato de la librería."
+    },
+    "platformConstraints": {
+      "css": "public/css/style.css es la hoja servida. resources/css/ no alimenta la página.",
+      "javascript": "public/js/ no existe. El único JS propio es resources/js/expediente-link.js, que llega por @vite y sólo en el wizard. Todo lo demás: CSS puro, JS de Bootstrap 4 (collapse, tabs, modal) o controles nativos.",
+      "framework": "Bootstrap 4.3.1 desde CDN. Sin Tailwind, sin preprocesador, sin build de componentes."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal de cada sección. Su hover era invisible: un !important fijaba el reposo en el mismo tono que el hover.",
+      "html": "<button class=\"ds-btn-primary\">Solicitar una cita</button>",
+      "css": ".ds-btn-primary { background-color: #dfc356; border: 1px solid #dfc356; color: #0d2b3e; font-family: Inter, -apple-system, 'Segoe UI', Roboto, sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: .01em; padding: .9375rem 2.25rem; min-height: 44px; border-radius: 8px; cursor: pointer; box-shadow: none; transition: background-color 200ms cubic-bezier(.4,0,.2,1), border-color 200ms cubic-bezier(.4,0,.2,1), box-shadow 200ms cubic-bezier(.4,0,.2,1); } .ds-btn-primary:hover { background-color: #d2ae3c; border-color: #d2ae3c; box-shadow: 0 2px 6px rgba(154,132,42,.22), 0 8px 20px rgba(210,174,60,.28); } .ds-btn-primary:active { background-color: #d2ae3c; box-shadow: inset 0 2px 4px rgba(13,43,62,.18); } .ds-btn-primary:focus-visible { outline: 2px solid #0d2b3e; outline-offset: 3px; }"
+    },
+    {
+      "name": "Nav Ghost Button",
+      "kind": "button",
+      "refersTo": "button-nav",
+      "description": "Enmienda: renunció al oro. Era un cuarto elemento dorado y un segundo CTA compitiendo con el del hero en el mismo viewport.",
+      "html": "<div class=\"ds-navbar-bed\"><a href=\"#\" class=\"ds-btn-nav\">Contactar</a></div>",
+      "css": ".ds-navbar-bed { background: #0d2b3e; padding: .875rem 1rem; } .ds-btn-nav { display: inline-flex; align-items: center; min-height: 44px; border: 1px solid rgba(255,255,255,.42); color: #fff; background: transparent; font-family: Inter, -apple-system, 'Segoe UI', Roboto, sans-serif; font-weight: 600; font-size: .8125rem; letter-spacing: .11em; text-transform: uppercase; text-decoration: none; padding: .625rem 1.5rem; border-radius: 999px; transition: background-color 200ms cubic-bezier(.4,0,.2,1), color 200ms cubic-bezier(.4,0,.2,1), border-color 200ms cubic-bezier(.4,0,.2,1); } .ds-btn-nav:hover { background: #fff; border-color: #fff; color: #0d2b3e; } .ds-btn-nav:focus-visible { outline: 2px solid #dfc356; outline-offset: 4px; }"
+    },
+    {
+      "name": "Executive Card",
+      "kind": "card",
+      "refersTo": "card-executive",
+      "description": "Contenedor universal. Plana en reposo Y en hover: la elevación responde a controles, nunca a contenedores.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Política de calidad</h3><span class=\"ds-rule\"></span><p class=\"ds-card-body\">Ejecutamos nuestra encomienda bajo estándares de rigor técnico, buscando la satisfacción del cliente y la mejora continua del sistema.</p></div>",
+      "css": ".ds-card { background: #fff; border: 1px solid rgba(13,43,62,.12); border-radius: 12px; padding: clamp(1.5rem, 1.167rem + 1.481vw, 2.5rem); height: 100%; } .ds-card-title { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: clamp(1.625rem, 1.375rem + 1.111vw, 2.375rem); line-height: 1.18; letter-spacing: -.008em; color: #0d2b3e; margin: 0 0 .75rem; } .ds-rule { display: block; width: 48px; height: 2px; background: #9a842a; margin: 0 0 1.25rem; } .ds-card-body { font-family: Inter, -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 1rem; line-height: 1.7; color: #364d59; margin: 0; max-width: 68ch; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Hover y foco producían el mismo halo. Ahora el hover sólo oscurece el borde; el foco lleva borde navy que carga el 3:1 y halo dorado que carga la marca.",
+      "html": "<label class=\"ds-label\" for=\"ds-tel\">Teléfono de contacto</label><input class=\"ds-input\" type=\"tel\" id=\"ds-tel\" inputmode=\"tel\"><small class=\"ds-help\">Diez dígitos. Es el medio por el que le confirmaremos la cita.</small>",
+      "css": ".ds-label { display: block; font-family: Inter, -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: .9375rem; font-weight: 600; color: #0d2b3e; margin-bottom: .4rem; } .ds-input { width: 100%; height: 55px; background: #fff; border: 1px solid rgba(13,43,62,.18); border-radius: 8px; padding: 0 1rem; font-family: Inter, -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 1rem; color: #364d59; transition: border-color 200ms cubic-bezier(.4,0,.2,1), box-shadow 200ms cubic-bezier(.4,0,.2,1); } .ds-input:hover:not(:focus) { border-color: rgba(13,43,62,.34); } .ds-input:focus { outline: none; border-color: #0d2b3e; box-shadow: 0 0 0 3px rgba(223,195,86,.45), 0 0 0 4px rgba(13,43,62,.55); } .ds-help { display: block; margin-top: .375rem; font-family: Inter, sans-serif; font-size: .9375rem; color: #5b7784; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "El subrayado crece con transform: scaleX, no con width — compositable, sin paso de layout.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link ds-nav-link-active\">Inicio</a><a href=\"#\" class=\"ds-nav-link\">Servicios</a><a href=\"#\" class=\"ds-nav-link\">Identidad</a></nav>",
+      "css": ".ds-nav { background: #0d2b3e; padding: .875rem 1.5rem; display: flex; gap: 1.375rem; } .ds-nav-link { position: relative; color: #fff; font-family: Inter, -apple-system, 'Segoe UI', Roboto, sans-serif; font-weight: 500; font-size: .8125rem; letter-spacing: .11em; text-transform: uppercase; text-decoration: none; padding: 12px 0; transition: color 200ms cubic-bezier(.4,0,.2,1); } .ds-nav-link::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: #dfc356; transform: scaleX(0); transform-origin: left center; transition: transform 180ms cubic-bezier(.4,0,.2,1); } .ds-nav-link:hover { color: #dfc356; } .ds-nav-link:hover::after, .ds-nav-link-active::after { transform: scaleX(1); } .ds-nav-link:focus-visible { outline: 2px solid #dfc356; outline-offset: 4px; }"
+    },
+    {
+      "name": "Proof Band",
+      "kind": "custom",
+      "refersTo": "proof-band",
+      "description": "La única prueba verificable de la notaría vivía en un párrafo del pie de página, en blanco sobre una fotografía sin velo. Sobre navy sólido: 14.5:1 garantizado.",
+      "html": "<section class=\"ds-proof\"><hr class=\"ds-proof-rule\"><h2 class=\"ds-proof-title\">Nombramiento y datos registrales</h2><dl class=\"ds-proof-grid\"><div class=\"ds-proof-fact\"><dt>En funciones desde</dt><dd>2004</dd></div><div class=\"ds-proof-fact\"><dt>Publicación del nombramiento</dt><dd>23 de noviembre de 2009</dd></div><div class=\"ds-proof-fact\"><dt>Órgano de publicación</dt><dd>Periódico Oficial del Estado de Puebla, tomo CDXV</dd></div></dl></section>",
+      "css": ".ds-proof { background: #0d2b3e; padding: 3rem 2rem; text-align: center; } .ds-proof-rule { width: 48px; height: 2px; background: #dfc356; border: 0; margin: 0 auto 1.25rem; } .ds-proof-title { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 1.75rem; color: #fff; margin: 0 0 2.5rem; } .ds-proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 0; text-align: left; } .ds-proof-fact { border-top: 1px solid rgba(255,255,255,.16); padding-top: 1.25rem; } .ds-proof-fact dt { font-family: Inter, sans-serif; font-size: .8125rem; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; color: rgba(255,255,255,.78); margin-bottom: .35rem; } .ds-proof-fact dd { font-family: Inter, sans-serif; font-size: 1rem; line-height: 1.5; color: #fff; margin: 0; }"
+    },
+    {
+      "name": "Section Icon Medallion",
+      "kind": "custom",
+      "refersTo": "medallion",
+      "description": "Enmienda: era glifo dorado sobre dorado al 10% (1.65:1). Invertido a disco navy: 8.43:1. Un sello, no una mancha.",
+      "html": "<div class=\"ds-medallion\"><svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3v18M7 21h10M12 6 4 9l8 3 8-3-8-3Z\"/><path d=\"M4 9v3a3 3 0 0 0 6 0V9M14 9v3a3 3 0 0 0 6 0V9\"/></svg></div>",
+      "css": ".ds-medallion { display: inline-flex; align-items: center; justify-content: center; width: 68px; height: 68px; color: #dfc356; background: #0d2b3e; border-radius: 50%; }"
+    },
+    {
+      "name": "La Rúbrica",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "El único elemento animado del sitio. El trazo que un fedatario dibuja bajo su firma: 900ms, retraso de 620ms para caer después de que el título asiente.",
+      "html": "<div class=\"ds-hero\"><p class=\"ds-eyebrow\">Distrito Judicial de Puebla · En funciones desde 2004</p><h1 class=\"ds-display\">Notaría Pública Número 4</h1><span class=\"ds-rubrica\"></span><p class=\"ds-lede\">Formalizamos compraventas, poderes, testamentos y constitución de sociedades.</p></div>",
+      "css": "@keyframes ds-rubrica { from { transform: scaleX(0); } to { transform: scaleX(1); } } @keyframes ds-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } } .ds-hero { background: linear-gradient(120deg, #1a4966, #0d2b3e); padding: 3.5rem 2rem; border-radius: 12px; } .ds-eyebrow { font-family: Inter, sans-serif; font-size: .8125rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #fff; margin: 0 0 .875rem; opacity: 0; animation: ds-rise 820ms cubic-bezier(.16,1,.3,1) 60ms forwards; } .ds-display { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: clamp(2.25rem, 6vw, 4.25rem); line-height: 1.05; letter-spacing: -.015em; color: #fff; margin: 0 0 1.25rem; max-width: 17ch; opacity: 0; animation: ds-rise 820ms cubic-bezier(.16,1,.3,1) 180ms forwards; } .ds-rubrica { display: block; width: clamp(72px, 9vw, 132px); height: 2px; margin: 0 0 1.75rem; background: #dfc356; transform: scaleX(0); transform-origin: left center; animation: ds-rubrica 900ms cubic-bezier(.22,.85,.25,1) 620ms forwards; } .ds-lede { font-family: Inter, sans-serif; font-size: 1.25rem; line-height: 1.55; color: #fff; margin: 0; max-width: 46ch; opacity: 0; animation: ds-rise 820ms cubic-bezier(.16,1,.3,1) 900ms forwards; } @media (prefers-reduced-motion: reduce) { .ds-rubrica { animation: none; transform: scaleX(1); } .ds-eyebrow, .ds-display, .ds-lede { animation: none; opacity: 1; transform: none; } }"
+    },
+    {
+      "name": "Trámite Card",
+      "kind": "card",
+      "refersTo": "tramite-card",
+      "description": "El único bloque tipo tarjeta que SÍ responde al hover, porque es un enlace y no un contenedor.",
+      "html": "<a class=\"ds-tramite\" href=\"#\"><span class=\"ds-tramite-name\">Traslativas de dominio</span><span class=\"ds-tramite-action\">Ver requisitos</span></a>",
+      "css": ".ds-tramite { display: flex; flex-direction: column; justify-content: space-between; background: #fff; border: 1px solid rgba(13,43,62,.12); border-radius: 12px; padding: 1.5rem; color: #0d2b3e; text-decoration: none; min-height: 44px; transition: border-color 200ms cubic-bezier(.4,0,.2,1), box-shadow 200ms cubic-bezier(.4,0,.2,1); } .ds-tramite:hover { border-color: rgba(13,43,62,.28); box-shadow: 0 1px 2px rgba(13,43,62,.06), 0 2px 6px rgba(13,43,62,.05); } .ds-tramite-name { font-family: Inter, sans-serif; font-weight: 600; font-size: 1.25rem; line-height: 1.4; } .ds-tramite-action { margin-top: 1rem; font-family: Inter, sans-serif; font-size: .8125rem; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; color: #2c465a; }"
+    },
+    {
+      "name": "Wizard Step Indicator",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Vive dentro de cada panel con su paso ya marcado: así el JS que revela el panel revela el indicador correcto, sin una línea de código nueva.",
+      "html": "<ol class=\"ds-steps\"><li class=\"ds-step is-done\"><span class=\"ds-step-num\">1</span><span>Identidad</span></li><li class=\"ds-step is-current\"><span class=\"ds-step-num\">2</span><span>Sus datos</span></li><li class=\"ds-step\"><span class=\"ds-step-num\">3</span><span>Documentos</span></li></ol>",
+      "css": ".ds-steps { display: flex; list-style: none; padding: 0; margin: 0; border-bottom: 1px solid rgba(13,43,62,.12); font-family: Inter, sans-serif; } .ds-step { flex: 1 1 0; text-align: center; padding: 0 .25rem 1rem; color: #5b7784; font-size: .9375rem; position: relative; } .ds-step-num { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; margin: 0 auto .5rem; border-radius: 50%; border: 1px solid rgba(13,43,62,.18); font-weight: 600; font-size: .9rem; } .ds-step.is-current { color: #0d2b3e; font-weight: 600; } .ds-step.is-current .ds-step-num { background: #0d2b3e; border-color: #0d2b3e; color: #fff; } .ds-step.is-current::after { content: ''; position: absolute; left: 15%; right: 15%; bottom: -1px; height: 2px; background: #dfc356; } .ds-step.is-done { color: #0d2b3e; } .ds-step.is-done .ds-step-num { background: rgba(13,43,62,.08); border-color: transparent; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Notarial Antechamber",
+    "overview": "Este sitio es la antesala de la notaría, no el despacho. El visitante llega con un asunto patrimonial serio y todavía no sabe si confiar; lo que lo convence es un recibidor sobrio, bien iluminado y con materiales nobles, donde alguien lo espera con nombre y apellido.\n\nLa relación con erp-frontend es explícita: misma marca, distinto registro. Los tokens de color y las familias tipográficas son los del ERP; lo que no cruza es su densidad. El ERP existe para operar cientos de registros por día; aquí una sola decisión importa por pantalla.\n\nLo premium aquí no es un efecto, es precisión: alineación óptica, una escala tipográfica real, espacio en blanco disciplinado, hairlines que se ven, el acento metálico racionado, fotografía tratada con intención, y un solo momento animado en lugar de movimiento espolvoreado. La confianza se produce por cuidado evidente.",
+    "keyCharacteristics": [
+      "Navy como estructura, oro como acento escaso, blanco como superficie de lectura.",
+      "Fotografía real de las personas y del edificio; cero ilustración genérica, stock ni imagen de archivo.",
+      "Playfair Display para lo que la notaría es; Inter para todo lo que el visitante hace.",
+      "Plano en reposo. La profundidad responde a controles, nunca a contenedores.",
+      "Un solo elemento animado en todo el sitio.",
+      "Sin modo oscuro. El ERP lo tiene; este sitio no lo hereda."
+    ],
+    "rules": [
+      { "name": "La Regla del Oro Escaso", "body": "El oro es un metal, no un color de relleno. Aparece como máximo en tres elementos por viewport: la acción principal, el indicador de navegación activa y un acento estructural.", "section": "colors" },
+      { "name": "La Regla del Oro Sobre Oscuro", "body": "El oro sólo carga texto sobre navy o sobre fotografía con velo (8.43:1). Sobre blanco no llega ni a 2:1, y accent-gold-dark tampoco (2.13:1). Si hace falta una línea metálica sobre fondo claro, es Brass.", "section": "colors" },
+      { "name": "La Regla de la Semántica Ausente", "body": "La Regla de Semántica Absoluta del ERP no aplica aquí, porque este sitio no muestra estado de cumplimiento. No hay verdes ni rojos semánticos.", "section": "colors" },
+      { "name": "La Regla de la Serif Institucional", "body": "Playfair es para lo que la notaría es. Nunca para lo que el visitante hace: ningún botón, etiqueta de campo, mensaje de error ni paso de wizard lleva serif.", "section": "typography" },
+      { "name": "La Regla del Peso Real", "body": "Sólo se diseñan pesos que el link de fuentes carga: Playfair 400/700, Inter 400/500/600/700.", "section": "typography" },
+      { "name": "La Regla de la Medida", "body": "El cuerpo de texto se corta en 68ch y parte sílabas. El español justificado sin partición produce ríos de espacio.", "section": "typography" },
+      { "name": "La Regla de una Decisión por Pantalla", "body": "Cada sección propone una sola acción. Si aparece un segundo botón que compite con el primero, la sección se parte en dos.", "section": "layout" },
+      { "name": "La Regla de la Sombra Teñida", "body": "Toda sombra sobre una superficie de marca lleva navy, no negro puro.", "section": "elevation" },
+      { "name": "La Regla del Reposo Plano", "body": "Una tarjeta en reposo no tiene sombra, y no responde al hover. La elevación responde a controles, nunca a contenedores.", "section": "elevation" },
+      { "name": "La Regla de la Doble Capa", "body": "Ninguna sombra nueva se declara con un solo box-shadow. Contacto más ambiente, o no es sombra.", "section": "elevation" },
+      { "name": "La Regla de los Dos Radios", "body": "8px para lo que se opera, 12px para lo que se mira.", "section": "shapes" },
+      { "name": "La Regla del Borde Sin Pestaña", "body": "Ningún borde de color de más de 1px en tarjetas, listas, alertas o callouts.", "section": "shapes" },
+      { "name": "La Regla del Movimiento Único", "body": "Un sitio, un momento. Si algo nuevo necesita animarse, primero hay que decidir qué deja de animarse.", "section": "motion" }
+    ],
+    "dos": [
+      "Do editar public/css/style.css: es la hoja que el layout sirve.",
+      "Do escribir todo lo nuevo con los tokens --n4-* declarados al final de esa hoja.",
+      "Do heredar de erp-frontend/DESIGN.md los valores de color y las familias tipográficas.",
+      "Do usar navy para texto sobre superficie clara, y Brass cuando haga falta una línea metálica ahí.",
+      "Do teñir de navy toda sombra nueva, y darle dos capas.",
+      "Do asociar toda etiqueta de formulario con for, anunciar los errores con role=alert y confirmar el envío con un estado visible.",
+      "Do asumir que no hay JavaScript propio disponible fuera del wizard.",
+      "Do usar fotografía real de la notaría, su edificio y sus titulares."
+    ],
+    "donts": [
+      "Don't portar el vocabulario de estado del ERP: .o2c-badge, .o2c-chip, .o2c-count-chip, .notary-audit-chip, .notary-legal-card ni tr.pld-row--*.",
+      "Don't consumir los tokens --o2c-*.",
+      "Don't construir un modo oscuro ni añadir @media (prefers-color-scheme: dark).",
+      "Don't poner texto dorado sobre blanco o sobre #f8f9fa, en ningún tono de la rampa.",
+      "Don't usar colores por defecto de Bootstrap para acciones, acentos o estado.",
+      "Don't hacer que una tarjeta se levante al pasar el cursor. Sólo los controles responden.",
+      "Don't poner un borde de acento de más de 1px a la izquierda de una tarjeta, lista o alerta.",
+      "Don't añadir una segunda animación sin retirar la existente.",
+      "Don't usar el marcador de posición como etiqueta de un campo.",
+      "Don't añadir a la banda de Acreditación nada que no sea un hecho registral verificable."
+    ]
+  }
+}

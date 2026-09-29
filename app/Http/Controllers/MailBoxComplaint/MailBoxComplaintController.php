@@ -29,9 +29,30 @@ class MailBoxComplaintController extends Controller
      */
     public function create(Request $request)
     {
-        $mailbox = MailboxComplaint::create($request->all());
+        if ($request->filled('sitio_web')) {
+            return redirect()->to(route('mailbox_complaints') . '#buzon');
+        }
 
-        return view('mailbox_complaints')->with('alert', true);
+        // Los datos de contacto son opcionales a propósito: el buzón acepta
+        // reportes anónimos. Sólo el asunto y el detalle son obligatorios.
+        $datos = $request->validate([
+            'name'      => ['nullable', 'string', 'max:120'],
+            'email'     => ['nullable', 'email:rfc', 'max:150'],
+            'phone'     => ['nullable', 'string', 'max:25', 'regex:/^[0-9()+\s-]{10,25}$/'],
+            'affair'    => ['required', 'string', 'max:180'],
+            'complaint' => ['required', 'string', 'max:4000'],
+        ], [
+            'email.email'        => 'Ese correo no tiene un formato válido. Revíselo, o déjelo vacío.',
+            'phone.regex'        => 'Escriba un teléfono de 10 dígitos, o deje el campo vacío.',
+            'affair.required'    => 'Indique el asunto de su reporte.',
+            'complaint.required' => 'Describa lo ocurrido para que podamos revisarlo.',
+        ]);
+
+        MailboxComplaint::create($datos);
+
+        return redirect()
+            ->to(route('mailbox_complaints') . '#buzon')
+            ->with('mailbox_ok', true);
     }
 
     /**

@@ -9,7 +9,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-10 intro text-center text-lg-left">
                             <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla<br></strong> Sistema de Cotizaciones</h1>
-                            <p class="lead text-white mb-5" style="font-weight: 300;">En la Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla ponemos a su entera disposición una extensa gama de servicios legales orientados a blindar jurídicamente sus acuerdos comerciales y civiles. Nuestro trato es altamente personalizado y nos adaptamos con total flexibilidad a sus circunstancias y requerimientos operativos.</p>
+                            <p class="lead text-white mb-5" style="font-weight: 300;">En la Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla ponemos a su disposición nuestros servicios notariales orientados a otorgar certeza y seguridad jurídica a sus actos y contratos. Actuamos con estricto apego a la legalidad y profesionalismo.<br><br><em>* Todos nuestros honorarios se calculan con estricto apego al Arancel Profesional aplicable vigente en el Estado de Puebla.</em></p>
                         </div>
                     </div>
                 </div>

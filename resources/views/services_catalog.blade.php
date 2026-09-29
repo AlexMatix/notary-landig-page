@@ -1,110 +1,143 @@
 @extends('template.layout')
 
+@section('title', 'Catálogo de servicios · Notaría Pública Número 4')
+@section('meta_description', 'Actos notariales que formaliza la Notaría Pública Número 4 del Distrito Judicial de Puebla y los documentos que debe reunir para cada uno.')
+
 @section('front-page')
-    <div class="hero overlay" style="background-image: url({{ asset('images/portada1.jpg') }});">
+    <div class="hero inner-page" style="background-image: url({{ asset('images/portada1.jpg') }});">
         <div class="hero-executive-gradient"></div>
         <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-12" style="margin-top: 120px; position: relative; z-index: 2;">
-                    <div class="row align-items-center justify-content-between">
-                        <div class="col-lg-10 intro text-center text-lg-left">
-                            <h1 class="text-white name-notary mb-4"><strong>Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad Puebla<br></strong> Catálogo de Servicios</h1>
-                            <p class="lead text-white mb-5" style="font-weight: 300;">Ofrecemos una gama superior de instrumentos notariales diseñados para formalizar, proteger y dar plena validez a sus actos civiles y operaciones corporativas estratégicas. Nuestro compromiso es garantizar su certeza jurídica con inmediatez y eficacia.</p>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-12 col-lg-7 intro">
+                    <p class="n4-eyebrow">Notaría Pública Número 4 · Distrito Judicial de Puebla</p>
+                    <h1 class="name-notary">Catálogo de servicios</h1>
+                    <span class="hero-rule" aria-hidden="true"></span>
+                    <p class="lead">
+                        Instrumentos notariales para formalizar y dar plena validez a sus actos
+                        civiles y operaciones corporativas.
+                    </p>
                 </div>
             </div>
         </div>
-
-
     </div>
 @endsection
+
 @section('content')
     <div class="site-section bg-light">
         <div class="container">
-            <div class="executive-card modern-shadow mb-5">
-                <div class="accordion-title text-center mb-4">
-                    <h4 class="section-heading" style="color: #0d2b3e;">Explore nuestras categorías jurídicas para consultar el catálogo detallado de servicios notariales</h4>
-                </div>    
 
-                <!-- Navegación por Categorías (Tabs) -->
-                <ul class="nav nav-pills mb-4 justify-content-center" id="catalog-tab" role="tablist">
-                    @foreach($categoryOperations as $index => $category)
+            <div class="row mb-5">
+                <div class="col-12 col-lg-8">
+                    <h2 class="section-heading mb-3"><strong>Seleccione una categoría</strong></h2>
+                    <p class="text-muted mb-0">
+                        Consulte por categoría los actos que la notaría formaliza y los documentos
+                        que debe reunir para cada uno. El catálogo completo también está disponible
+                        en PDF.
+                    </p>
+                </div>
+            </div>
+
+            {{-- getOperations() depende de un host externo. Si cae, esta página se
+                 quedaba con el encabezado y nada debajo. @forelse da la salida honesta. --}}
+            @forelse($categoryOperations ?? [] as $index => $category)
+                @if($loop->first)
+                    <ul class="nav nav-pills mb-5 justify-content-center" id="catalog-tab" role="tablist">
+                @endif
                         <li class="nav-item m-1">
-                            <a class="nav-link px-4 py-2 {{ $index == 0 ? 'active' : '' }}" style="border-radius: 30px; font-weight: 500;" id="tab-cat-{{ $index }}" data-toggle="pill" href="#content-cat-{{ $index }}" role="tab" aria-controls="content-cat-{{ $index }}" aria-selected="{{ $index == 0 ? 'true' : 'false' }}">
-                                {{ ucwords($category->name ?? 'N/A') }}
+                            <a class="nav-link {{ $index == 0 ? 'active' : '' }}"
+                               id="tab-cat-{{ $index }}" data-toggle="pill"
+                               href="#content-cat-{{ $index }}" role="tab"
+                               aria-controls="content-cat-{{ $index }}"
+                               aria-selected="{{ $index == 0 ? 'true' : 'false' }}">
+                                {{ ucwords(mb_strtolower($category->name ?? 'Sin categoría', 'UTF-8')) }}
                             </a>
                         </li>
-                    @endforeach
-                </ul>
+                @if($loop->last)
+                    </ul>
 
-                <!-- Contenido de las Categorías -->
-                <div class="tab-content mt-5" id="catalog-tabContent">
-                    @foreach($categoryOperations as $index => $category)
-                        <div class="tab-pane fade {{ $index == 0 ? 'show active' : '' }}" id="content-cat-{{ $index }}" role="tabpanel" aria-labelledby="tab-cat-{{ $index }}">
-                            <div class="row">
-                                @if (!empty($category->operation))
-                                    @foreach($category->operation as $opIndex => $operation)
+                    <div class="tab-content" id="catalog-tabContent">
+                        @foreach($categoryOperations as $i => $cat)
+                            <div class="tab-pane fade {{ $i == 0 ? 'show active' : '' }}"
+                                 id="content-cat-{{ $i }}" role="tabpanel"
+                                 aria-labelledby="tab-cat-{{ $i }}">
+                                <div class="row">
+                                    @forelse($cat->operation ?? [] as $opIndex => $operation)
                                         <div class="col-md-6 col-lg-4 mb-4">
-                                            <!-- Tarjeta de Operación -->
-                                            <div class="executive-card h-100 p-4 border" style="box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: transform 0.2s;">
-                                                <h4 class="mb-4" style="color: #0d2b3e; font-size: 1.15rem; font-weight: 600; line-height: 1.4;">{{ ucwords($operation->name ?? 'N/A') }}</h4>
-                                                
-                                                @if (!empty($operation->config) && !empty($operation->config->documents_required))
-                                                    <button class="btn btn-sm d-flex align-items-center justify-content-between w-100" style="background-color: rgba(13, 43, 62, 0.05); border: 1px solid rgba(13, 43, 62, 0.1); color: #0d2b3e; font-weight: 500; border-radius: 8px;" type="button" data-toggle="collapse" data-target="#req-{{ $index }}-{{ $opIndex }}" aria-expanded="false" aria-controls="req-{{ $index }}-{{ $opIndex }}">
-                                                        Ver Requisitos <span class="icon">&#9660;</span>
+                                            <div class="executive-card executive-card--operation h-100">
+                                                <h3 class="mb-4" style="font-size: 1.15rem; font-weight: 600; line-height: 1.4;">
+                                                    {{ ucwords(mb_strtolower($operation->name ?? 'Sin nombre', 'UTF-8')) }}
+                                                </h3>
+
+                                                @if(!empty($operation->config) && !empty($operation->config->documents_required))
+                                                    <button class="n4-disclose" type="button"
+                                                            data-toggle="collapse"
+                                                            data-target="#req-{{ $i }}-{{ $opIndex }}"
+                                                            aria-expanded="false"
+                                                            aria-controls="req-{{ $i }}-{{ $opIndex }}">
+                                                        <span>Ver requisitos</span>
+                                                        <span class="n4-disclose__chevron icon-keyboard_arrow_down"
+                                                              aria-hidden="true"></span>
                                                     </button>
-                                                    
-                                                    <div class="collapse mt-3" id="req-{{ $index }}-{{ $opIndex }}">
-                                                        <div class="card card-body p-3 bg-light border-0" style="border-radius: 8px;">
-                                                            <ul class="text-left text-muted pl-3 mb-0" style="font-size: 0.9em; list-style: disc;">
-                                                                @foreach($operation->config->documents_required as $document)
-                                                                    <li class="mb-1">{{$documentsMap[$document->id] ?? 'Documento no encontrado'}}</li>
-                                                                @endforeach
-                                                            </ul>
-                                                        </div>
+
+                                                    <div class="collapse mt-3" id="req-{{ $i }}-{{ $opIndex }}">
+                                                        <ul class="n4-rule-list mb-0">
+                                                            @foreach($operation->config->documents_required as $document)
+                                                                <li>{{ $documentsMap[$document->id] ?? 'Documento no encontrado' }}</li>
+                                                            @endforeach
+                                                        </ul>
                                                     </div>
                                                 @endif
                                             </div>
                                         </div>
-                                    @endforeach
-                                @else
-                                    <div class="col-12 text-center text-muted">
-                                        <p>Actualmente no existen operaciones públicas disponibles documentadas bajo esta jerarquía jurídica.</p>
-                                    </div>
-                                @endif
+                                    @empty
+                                        <div class="col-12">
+                                            <p class="text-muted">
+                                                Esta categoría no tiene operaciones publicadas en línea.
+                                            </p>
+                                        </div>
+                                    @endforelse
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
+                @endif
+            @empty
+                <div class="text-center py-5">
+                    <p class="mb-4 mx-auto" style="max-width: 40em;">
+                        En este momento no podemos mostrar el catálogo en línea.
+                        Puede consultarlo en el documento completo o comunicarse con la notaría.
+                    </p>
+                    <a class="btn btn-primary" href="{{ asset('files/services_notary.pdf') }}"
+                       target="_blank" rel="noopener">Abrir el catálogo en PDF</a>
                 </div>
+            @endforelse
 
-    {{-- @foreach($operations as $i => $operation)
-
-        <h3 class="operation-section-title">
-            <span class="highlight-name">{{ ucwords($operation->name ?? 'N/A') }}</span>
-        </h3>
-
-    @endforeach --}}
-
-    <div class="site-section">
-        <div class="container">
-            <div class="executive-card overflow-hidden p-0 d-flex align-items-center justify-content-center modern-shadow">
-                <iframe style="width: 100%; height: 800px; border:0;" src="{{ asset('files/services_notary.pdf') }}"></iframe>
-            </div>
         </div>
     </div>
 
-    
-    
+    <div class="site-section">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 col-lg-8">
+                    <h2 class="section-heading mb-3"><strong>Catálogo completo</strong></h2>
+                    <p class="text-muted mb-0">
+                        El documento reúne todos los actos y sus requisitos.
+                    </p>
+                </div>
+            </div>
 
-    {{-- <script type="application/javascript">
+            {{-- El visor va acompañado de un enlace visible: en Safari de iOS un
+                 iframe de PDF renderiza una sola página, o nada. --}}
+            <p class="mb-4">
+                <a class="btn btn-primary" href="{{ asset('files/services_notary.pdf') }}"
+                   target="_blank" rel="noopener">Abrir el catálogo en PDF</a>
+            </p>
 
-
-        @if($verify)
-            document.addEventListener('DOMContentLoaded', function() {
-                $('#verifyQuote').modal('show');
-            });
-        @endif
-            
-    </script> --}}
+            <div class="executive-card executive-card--media d-none d-lg-block">
+                <iframe title="Catálogo de servicios notariales en PDF"
+                        style="height: 800px;"
+                        src="{{ asset('files/services_notary.pdf') }}"></iframe>
+            </div>
+        </div>
+    </div>
 @endsection

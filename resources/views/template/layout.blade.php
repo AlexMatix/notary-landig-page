@@ -1,13 +1,21 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
 
 <head>
-    <title>Notaría 4</title>
+    <title>@yield('title', 'Notaría Pública Número 4 · Distrito Judicial de Puebla')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="@yield('meta_description', 'Notaría Pública Número 4 del Distrito Judicial de Puebla. Certeza jurídica en compraventas, poderes, actas constitutivas y testamentos. Circuito Juan Pablo II 3117, Las Ánimas, Puebla.')">
+    <meta property="og:title" content="@yield('title', 'Notaría Pública Número 4 · Puebla')">
+    <meta property="og:description" content="@yield('meta_description', 'Notaría Pública Número 4 del Distrito Judicial de Puebla.')">
+    <meta property="og:image" content="{{ asset('images/portada1.jpg') }}">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0d2b3e">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
 
     {{--
@@ -16,25 +24,24 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">--}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/jquery.fancybox.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/aos.css')}}">
-
+    {{-- Fancybox, Owl Carousel y AOS: ~45 KB de CSS para cuatro librerías cuyo
+         JavaScript no existe en public/js/ y devuelve 404. Retirados. --}}
     <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('css/quote.css')}}">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link href="{{asset('images/logo.png')}}" rel="icon" type="image/x-icon" />
+    <link href="{{asset('images/logo.png')}}" rel="icon" type="image/png" />
 </head>
 
 <body>
 
+    <a class="n4-skip" href="#contenido">Ir al contenido</a>
+
     <div class="site-wrap" id="home-section">
 
-        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu site-navbar-target" id="menu-movil">
             <div class="site-mobile-menu-header">
                 <div class="site-mobile-menu-close mt-3">
                     <span class="icon-close2 js-menu-toggle"
@@ -47,7 +54,7 @@
                     <li><a href="{{route('index')}}" class="nav-link">Inicio</a></li>
                     <li><a href="{{route('services_catalog')}}" class="nav-link">Servicios</a></li>
                     <li><a href="{{route('us')}}" class="nav-link">Identidad</a></li>
-                    <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de Reportes</a></li>
+                    <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de quejas y sugerencias</a></li>
                     <li><a href="{{route('contact')}}" class="nav-link">Contactar</a></li>
                 </ul>
             </div>
@@ -74,7 +81,7 @@
                                 <li><a href="{{route('index')}}" class="nav-link">Inicio</a></li>
                                 <li><a href="{{route('services_catalog')}}" class="nav-link">Servicios</a></li>
                                 <li><a href="{{route('us')}}" class="nav-link">Identidad</a></li>
-                                <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de Reportes</a>
+                                <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de quejas y sugerencias</a>
                                 </li>
                             </ul>
                         </nav>
@@ -88,65 +95,59 @@
 
                     <!-- Menú Móvil -->
                     <div class="col-auto d-inline-block d-lg-none" style="z-index: 9999; position: relative;">
-                        <a href="javascript:void(0)"
-                            onclick="document.body.classList.toggle('offcanvas-menu'); return false;"
-                            class="site-menu-toggle py-5 d-block"><span class="icon-menu h3 text-white"></span></a>
+                        <a href="javascript:void(0)" role="button" aria-expanded="false"
+                            aria-controls="menu-movil" aria-label="Abrir el menú"
+                            onclick="this.setAttribute('aria-expanded', document.body.classList.toggle('offcanvas-menu')); return false;"
+                            class="site-menu-toggle"><span class="icon-menu h3 text-white" aria-hidden="true"></span></a>
                     </div>
 
                 </div>
             </div>
         </header>
 
-        @yield('front-page')
-        @yield('Quote-Info')
-        @yield('content')
+        <main id="contenido">
+            @yield('front-page')
+            @yield('Quote-Info')
+            @yield('content')
+        </main>
 
-        <footer class="site-footer" style="background-image: url({{asset('images/hero_bg_footer.jpg')}})">
+        {{-- La fotografía anterior (hero_bg_footer.jpg) era stock y mostraba un mazo
+             de juez — instrumento del poder judicial, no de un fedatario — y no
+             tenía velo alguno, así que el párrafo del nombramiento quedaba en
+             blanco sobre una libreta color crema. Navy sólido: 12:1 garantizado.
+             El texto largo del nombramiento vive ahora en la banda de
+             Acreditación del index; aquí queda la ficha corta. --}}
+        <footer class="site-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
-                        <h2 class="footer-heading mb-4">Sobre nosotros</h2>
-                        {{-- <p align="justify">En la Notaría Pública No. 4 ponemos a su disposición--}}
-                            {{-- diferentes servicios para proteger sus tratos con--}}
-                            {{-- clientes, proveedores, empleados y prestadores de--}}
-                            {{-- servicio. Hemos capacitado a un talentoso grupo de--}}
-                            {{-- abogados para atender las necesidades de las--}}
-                            {{-- empresas actuales. Nuestro servicio es personalizado--}}
-                            {{-- y flexible de acuerdo a sus circunstancias. </p>--}}
-                        <p align="justify">
-                            La Notaría Pública Número 4 del Distrito Judicial de Puebla con Residencia en la Ciudad
-                            Puebla se encuentra en Circuito Juan Pablo II 3117 Colonia las Animas
-                            Puebla Puebla, fundada en el año 2004.
-                            El lunes 23 de noviembre de 2009 el periódico oficial de Puebla en su tomo CDXV ser realiza
-                            la
-                            publicación del nombramiento
-                            con todos sus registros, conferido por Acuerdo del Ejecutivo del Estado, en favor de la
-                            licenciada Norma Romero Cortes, que
-                            la designa Titular de la Notaría Pública Número Cuatro del Distrito Judicial de Puebla, con
-                            residencia en la Ciudad de Puebla; en cumplimiento a lo ordenado por la fracción IV del
-                            artículo
-                            59 de la Ley del Notariado del Estado de Puebla y hace efectiva en cumplimiento al Segunto
-                            punto
-                            resolutivo del Acuerdo que desigana la titularidad de la Notaría Pública Número Cuatro del
-                            Distrito Judicial de Puebla.
+                        <h2 class="footer-heading">Sobre nosotros</h2>
+                        <p class="n4-nombramiento">
+                            Notaría Pública Número 4 del Distrito Judicial de Puebla, con residencia
+                            en la Ciudad de Puebla. En funciones desde 2004. Circuito Juan Pablo II
+                            3117, Col. Las Ánimas, Puebla, Puebla.
                         </p>
                         <ul class="list-unstyled social">
                             <li><a href="https://www.facebook.com/Notaria-Pública-Número-4-186640313029576/"
-                                    target="_blank"><span class="icon-facebook"></span></a></li>
-                            {{-- <li><a href="#"><span class="icon-instagram"></span></a></li>--}}
-                            {{-- <li><a href="#"><span class="icon-twitter"></span></a></li>--}}
-                            {{-- <li><a href="#"><span class="icon-linkedin"></span></a></li>--}}
+                                    target="_blank" rel="noopener"
+                                    aria-label="Notaría Pública Número 4 en Facebook"><span
+                                        class="icon-facebook" aria-hidden="true"></span></a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5 ml-auto">
                         <div class="row">
                             <div class="col-lg-6">
-                                <h2 class="footer-heading mb-4">Enlaces de interes</h2>
+                                <h2 class="footer-heading">Enlaces de interés</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="{{route('mailbox_complaints')}}">Buzón de quejas</a></li>
-                                    <li><a href="{{route('us')}}">Política de Calidad</a></li>
-                                    <li><a href="{{route('contact')}}">Contactanos</a></li>
+                                    <li><a href="{{route('mailbox_complaints')}}">Buzón de quejas y sugerencias</a></li>
+                                    <li><a href="{{route('us')}}">Identidad institucional</a></li>
+                                    <li><a href="{{route('contact')}}">Contacto</a></li>
+                                    <li><a href="{{route('privacy')}}">Aviso de privacidad</a></li>
                                 </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <h2 class="footer-heading">Horario de atención</h2>
+                                <p>Lunes a viernes, de 09:00 a 17:00 h.</p>
                             </div>
 
                         </div>
@@ -165,21 +166,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('js/popper.min.js')}}"></script>
-    {{--
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>--}}
-    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('js/jquery.sticky.js')}}"></script>
-    <script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('js/jquery.animateNumber.min.js')}}"></script>
-    <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
-    <script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
-    {{--
-    <script src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>--}}
-    <script src="{{asset('js/aos.js')}}"></script>
+    {{-- public/js/ no existe: los diez asset('js/...') que había aquí devolvían
+         404 en todas las páginas (main.js, AOS, Owl Carousel, Fancybox,
+         jquery.sticky, jquery.waypoints, animateNumber, easing, y las copias
+         locales de jQuery y Popper). Retirados.
 
-    <script src="{{asset('js/main.js')}}"></script>
+         Lo que sí carga y de lo que sí depende el sitio: jQuery slim, Popper y
+         Bootstrap 4 desde CDN, arriba. El wizard de expediente trae su propio
+         bundle por @vite en su sección de scripts.
+
+         Ninguna interacción de este sitio depende ya de JavaScript propio: el
+         menú móvil usa classList en línea, el catálogo usa collapse y tabs de
+         Bootstrap, el campo de fecha es type="date" nativo y las animaciones
+         son CSS puro. Si algún día se reponen esos archivos, revisar antes que
+         no dupliquen comportamiento que hoy ya funciona sin ellos. --}}
 
     @yield('scripts')
 </body>

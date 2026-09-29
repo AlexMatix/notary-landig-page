@@ -57,18 +57,35 @@ class ExpedienteController extends Controller
             $response = Http::withToken($this->getErpToken())
                 ->get($this->erpUrl . '/procedure/verifyToken/' . $token);
 
+            // Liga caducada o de otro expediente: la causa está del lado del enlace.
             if ($response->failed()) {
                 return view('expediente_link', [
-                    'token' => $token,
-                    'error_message' => 'El enlace proporcionado no es válido o ha caducado. Comuníquese con su asesor de la Notaría Pública o a recepción para que le proporcionen un nuevo acceso.'
+                    'token'         => $token,
+                    'error_kind'    => 'token',
+                    'error_title'   => 'No pudimos abrir este expediente',
+                    'error_message' => 'La liga que utilizó ya no es válida. Por seguridad, '
+                                     . 'estas ligas caducan y sólo sirven para el expediente '
+                                     . 'al que fueron emitidas. Solicite una nueva a la persona '
+                                     . 'de la notaría que le compartió este enlace.',
                 ]);
             }
-            
+
             return view('expediente_link', compact('token'));
+
         } catch (\Exception $e) {
+            // El ERP no responde o falló el OAuth: la culpa es nuestra, no del
+            // visitante. Antes ambas ramas devolvían el mismo texto, así que a
+            // quien tenía una liga perfecta se le decía que su liga no servía y
+            // se le mandaba a pedir otra que tampoco habría funcionado.
+            report($e);
+
             return view('expediente_link', [
-                'token' => $token,
-                'error_message' => 'El enlace proporcionado no es válido o ha caducado. Comuníquese con su asesor de la Notaría Pública o a recepción para que le proporcionen un nuevo acceso.'
+                'token'         => $token,
+                'error_kind'    => 'servicio',
+                'error_title'   => 'El servicio no está disponible en este momento',
+                'error_message' => 'Su liga está bien; el problema es nuestro. Vuelva a intentarlo '
+                                 . 'en unos minutos abriendo de nuevo este mismo enlace. '
+                                 . 'Si continúa sin abrir, comuníquese con la notaría.',
             ]);
         }
     }
@@ -119,6 +136,16 @@ class ExpedienteController extends Controller
         if (!$request->hasFile('file') || !$request->file('file')->isValid()) {
             return response()->json(['error' => 'Archivo no válido'], 400);
         }
+
+        // Sin esto, un HEIC de 20 MB desde un iPhone rebotaba contra el límite de
+        // PHP y devolvía HTML, que el cliente reportaba como un error genérico.
+        // validate() responde 422 con un mensaje que el wizard sí puede mostrar.
+        $request->validate([
+            'file' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf,heic', 'max:10240'],
+        ], [
+            'file.mimes' => 'Sólo aceptamos imágenes JPG o PNG y archivos PDF.',
+            'file.max'   => 'El archivo pesa más de 10 MB. Tome la foto en menor resolución o envíe un PDF.',
+        ]);
 
         $file = $request->file('file');
 

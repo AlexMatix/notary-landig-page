@@ -7,46 +7,39 @@ use App\Http\Controllers\Services\ServicesController;
 use App\Http\Controllers\Expediente\ExpedienteController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
-    return view('index')->with('alert', false)->with('services', ServicesController::getServices());
+    return view('index')->with('services', ServicesController::getServices());
 })->name('index');
-Route::post('/contact/cite', [CitesController::class, 'create'])->name('cite-create');
+// throttle en los tres formularios publicos: escriben en base de datos sin
+// autenticacion de ningun tipo y su unica defensa previa era un honeypot.
+Route::post('/contact/cite', [CitesController::class, 'create'])
+    ->middleware('throttle:5,1')->name('cite-create');
 
-
-//Route::get('/services_catalog', [ServicesController::class, 'getServices'])->name('services_catalog');
 Route::get('/services_catalog', [ServicesController::class, 'getOperations'], function () {
     return view('services_catalog');
 })->name('services_catalog');
 
-// Route::get('/services_catalog', [ServicesController::class, 'getOperations'])->name('services_catalog');
-
 Route::get('/services/quote/{token}/{quoteId}', [ServicesController::class, 'validProjectQuote'])->name('/services/quote/{token}/{quoteId}');
 
 Route::get('/contact', function () {
-    return view('contact')->with('alert', false);
+    return view('contact');
 })->name('contact');
-Route::post('/contact/create', [ContactController::class, 'create'])->name('contact-create');
+Route::post('/contact/create', [ContactController::class, 'create'])
+    ->middleware('throttle:5,1')->name('contact-create');
 
 Route::get('/us', function () {
     return view('us');
 })->name('us');
 
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
 
 Route::get('/mailbox_complaints', function () {
-    return view('mailbox_complaints')->with('alert', false);
+    return view('mailbox_complaints');
 })->name('mailbox_complaints');
-Route::post('/mailbox_complaints/create', [MailBoxComplaintController::class, 'create'])->name('mailbox-create');
+Route::post('/mailbox_complaints/create', [MailBoxComplaintController::class, 'create'])
+    ->middleware('throttle:5,1')->name('mailbox-create');
 
 // Rutas de Vinculación y Proxy de Expedientes (Conexión a ERP)
 Route::get('/expediente/vincular/{token}', [ExpedienteController::class, 'showWizard'])->name('expediente.link');

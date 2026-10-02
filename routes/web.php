@@ -47,3 +47,20 @@ Route::post('/ajax/expediente/verify-rfc', [ExpedienteController::class, 'verify
 Route::post('/ajax/expediente/link', [ExpedienteController::class, 'linkGrantor']);
 Route::get('/ajax/expediente/{token}/documents', [ExpedienteController::class, 'getDocuments']);
 Route::post('/ajax/expediente/upload', [ExpedienteController::class, 'uploadDocument']);
+
+// Auth Routes
+use App\Http\Controllers\AuthController;
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+use App\Http\Controllers\PortalController;
+
+// Portal Route
+Route::middleware('auth')->group(function () {
+    Route::get('/portal', [PortalController::class, 'index'])->name('portal');
+    Route::get('/portal/tramite/{id}', [PortalController::class, 'show'])->name('portal.show');
+});

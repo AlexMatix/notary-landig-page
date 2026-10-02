@@ -6,9 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="@yield('meta_description', 'Notaría Pública Número 4 del Distrito Judicial de Puebla. Certeza jurídica en compraventas, poderes, actas constitutivas y testamentos. Circuito Juan Pablo II 3117, Las Ánimas, Puebla.')">
+    <meta name="description"
+        content="@yield('meta_description', 'Notaría Pública Número 4 del Distrito Judicial de Puebla. Certeza jurídica en compraventas, poderes, actas constitutivas y testamentos. Circuito Juan Pablo II 3117, Las Ánimas, Puebla.')">
     <meta property="og:title" content="@yield('title', 'Notaría Pública Número 4 · Puebla')">
-    <meta property="og:description" content="@yield('meta_description', 'Notaría Pública Número 4 del Distrito Judicial de Puebla.')">
+    <meta property="og:description"
+        content="@yield('meta_description', 'Notaría Pública Número 4 del Distrito Judicial de Puebla.')">
     <meta property="og:image" content="{{ asset('images/portada1.jpg') }}">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#0d2b3e">
@@ -25,7 +27,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {{-- Fancybox, Owl Carousel y AOS: ~45 KB de CSS para cuatro librerías cuyo
-         JavaScript no existe en public/js/ y devuelve 404. Retirados. --}}
+    JavaScript no existe en public/js/ y devuelve 404. Retirados. --}}
     <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
     <link rel="stylesheet" href="{{asset('fonts/flaticon/font/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('css/quote.css')}}">
@@ -54,8 +56,15 @@
                     <li><a href="{{route('index')}}" class="nav-link">Inicio</a></li>
                     <li><a href="{{route('services_catalog')}}" class="nav-link">Servicios</a></li>
                     <li><a href="{{route('us')}}" class="nav-link">Identidad</a></li>
-                    <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de quejas y sugerencias</a></li>
+                    <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de quejas y sugerencias</a>
+                    </li>
                     <li><a href="{{route('contact')}}" class="nav-link">Contactar</a></li>
+                    @auth
+                        <li><a href="{{route('portal')}}" class="nav-link" style="color: #c5a059;">Mi Portal</a></li>
+                    @else
+                        <li><a href="{{route('login')}}" class="nav-link" style="color: #c5a059;">Portal de Clientes</a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -81,8 +90,15 @@
                                 <li><a href="{{route('index')}}" class="nav-link">Inicio</a></li>
                                 <li><a href="{{route('services_catalog')}}" class="nav-link">Servicios</a></li>
                                 <li><a href="{{route('us')}}" class="nav-link">Identidad</a></li>
-                                <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de quejas y sugerencias</a>
-                                </li>
+                                <li><a href="{{route('mailbox_complaints')}}" class="nav-link">Buzón de quejas y
+                                        sugerencias</a></li>
+                                @auth
+                                    <li><a href="{{route('portal')}}" class="nav-link" style="color: #c5a059;">Mi Portal</a>
+                                    </li>
+                                @else
+                                    <li><a href="{{route('login')}}" class="nav-link" style="color: #c5a059;">Portal de
+                                            Clientes</a></li>
+                                @endauth
                             </ul>
                         </nav>
                     </div>
@@ -95,10 +111,11 @@
 
                     <!-- Menú Móvil -->
                     <div class="col-auto d-inline-block d-lg-none" style="z-index: 9999; position: relative;">
-                        <a href="javascript:void(0)" role="button" aria-expanded="false"
-                            aria-controls="menu-movil" aria-label="Abrir el menú"
+                        <a href="javascript:void(0)" role="button" aria-expanded="false" aria-controls="menu-movil"
+                            aria-label="Abrir el menú"
                             onclick="this.setAttribute('aria-expanded', document.body.classList.toggle('offcanvas-menu')); return false;"
-                            class="site-menu-toggle"><span class="icon-menu h3 text-white" aria-hidden="true"></span></a>
+                            class="site-menu-toggle"><span class="icon-menu h3 text-white"
+                                aria-hidden="true"></span></a>
                     </div>
 
                 </div>
@@ -112,11 +129,11 @@
         </main>
 
         {{-- La fotografía anterior (hero_bg_footer.jpg) era stock y mostraba un mazo
-             de juez — instrumento del poder judicial, no de un fedatario — y no
-             tenía velo alguno, así que el párrafo del nombramiento quedaba en
-             blanco sobre una libreta color crema. Navy sólido: 12:1 garantizado.
-             El texto largo del nombramiento vive ahora en la banda de
-             Acreditación del index; aquí queda la ficha corta. --}}
+        de juez — instrumento del poder judicial, no de un fedatario — y no
+        tenía velo alguno, así que el párrafo del nombramiento quedaba en
+        blanco sobre una libreta color crema. Navy sólido: 12:1 garantizado.
+        El texto largo del nombramiento vive ahora en la banda de
+        Acreditación del index; aquí queda la ficha corta. --}}
         <footer class="site-footer">
             <div class="container">
                 <div class="row">
@@ -130,8 +147,8 @@
                         <ul class="list-unstyled social">
                             <li><a href="https://www.facebook.com/Notaria-Pública-Número-4-186640313029576/"
                                     target="_blank" rel="noopener"
-                                    aria-label="Notaría Pública Número 4 en Facebook"><span
-                                        class="icon-facebook" aria-hidden="true"></span></a></li>
+                                    aria-label="Notaría Pública Número 4 en Facebook"><span class="icon-facebook"
+                                        aria-hidden="true"></span></a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5 ml-auto">
@@ -167,19 +184,19 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     {{-- public/js/ no existe: los diez asset('js/...') que había aquí devolvían
-         404 en todas las páginas (main.js, AOS, Owl Carousel, Fancybox,
-         jquery.sticky, jquery.waypoints, animateNumber, easing, y las copias
-         locales de jQuery y Popper). Retirados.
+    404 en todas las páginas (main.js, AOS, Owl Carousel, Fancybox,
+    jquery.sticky, jquery.waypoints, animateNumber, easing, y las copias
+    locales de jQuery y Popper). Retirados.
 
-         Lo que sí carga y de lo que sí depende el sitio: jQuery slim, Popper y
-         Bootstrap 4 desde CDN, arriba. El wizard de expediente trae su propio
-         bundle por @vite en su sección de scripts.
+    Lo que sí carga y de lo que sí depende el sitio: jQuery slim, Popper y
+    Bootstrap 4 desde CDN, arriba. El wizard de expediente trae su propio
+    bundle por @vite en su sección de scripts.
 
-         Ninguna interacción de este sitio depende ya de JavaScript propio: el
-         menú móvil usa classList en línea, el catálogo usa collapse y tabs de
-         Bootstrap, el campo de fecha es type="date" nativo y las animaciones
-         son CSS puro. Si algún día se reponen esos archivos, revisar antes que
-         no dupliquen comportamiento que hoy ya funciona sin ellos. --}}
+    Ninguna interacción de este sitio depende ya de JavaScript propio: el
+    menú móvil usa classList en línea, el catálogo usa collapse y tabs de
+    Bootstrap, el campo de fecha es type="date" nativo y las animaciones
+    son CSS puro. Si algún día se reponen esos archivos, revisar antes que
+    no dupliquen comportamiento que hoy ya funciona sin ellos. --}}
 
     @yield('scripts')
 </body>

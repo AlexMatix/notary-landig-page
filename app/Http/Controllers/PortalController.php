@@ -95,22 +95,20 @@ class PortalController extends Controller
 
             if ($accessToken) {
                 $response = Http::withToken($accessToken)
-                    ->post($erpUrl . '/api/portal/procedures-by-rfc', [
-                        'rfc' => $rfc
+                    ->post($erpUrl . '/api/portal/procedure-by-rfc-and-id', [
+                        'rfc' => $rfc,
+                        'id' => $id
                     ]);
 
                 if ($response->successful()) {
                     $json = $response->json();
-                    $procedures = isset($json['data']) ? collect($json['data']) : collect($json);
-                    
-                    // Find the procedure
-                    $procedure = $procedures->firstWhere('id', (int)$id);
+                    $procedure = isset($json['data']) ? $json['data'] : $json;
                     
                     if (!$procedure) {
                         return redirect()->route('portal')->with('error', 'Trámite no encontrado o sin permisos.');
                     }
                 } else {
-                    $error = "No se pudo cargar el trámite (Error del servidor remoto).";
+                    return redirect()->route('portal')->with('error', 'Trámite no encontrado o sin permisos.');
                 }
             } else {
                 $error = "Falla de autenticación con el sistema central.";
@@ -123,6 +121,6 @@ class PortalController extends Controller
             return redirect()->route('portal')->with('error', $error);
         }
 
-        return view('portal.show', compact('procedure'));
+        return view('portal.show', compact('procedure', 'rfc'));
     }
 }

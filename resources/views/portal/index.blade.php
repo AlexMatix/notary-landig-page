@@ -45,7 +45,7 @@
         @endphp
         <div style="background-color: var(--neutral-white); border: 1px solid var(--neutral-slate-200); border-top: 4px solid var(--accent-gold); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05); display: flex; flex-direction: column;">
             
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
                 <div>
                     <span style="font-family: monospace; color: var(--neutral-slate-500); font-size: 0.875rem; display: block; margin-bottom: 0.25rem;">Expediente: #{{ $expediente }}</span>
                     <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--notary-navy); margin-bottom: 0;">{{ $operation }}</h3>

@@ -12,6 +12,14 @@
     $instrument = $proc->get('instrument') ?? 'S/N';
     $grantors = collect($proc->get('grantors') ?? []);
 
+    $isGrantor = false;
+    foreach($grantors as $grantor) {
+        if (isset($rfc) && strtoupper(trim(collect($grantor)->get('rfc'))) === strtoupper(trim($rfc))) {
+            $isGrantor = true;
+            break;
+        }
+    }
+
     $faseActual = 1;
     if ($documentos->count() > 0) $faseActual = 2;
     if ($proc->get('date')) $faseActual = 3;
@@ -58,9 +66,9 @@
 <!-- Resumen Legal Banner -->
 <div style="background-color: var(--neutral-white); border: 1px solid var(--neutral-slate-200); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03); margin-bottom: 2rem; border-left: 4px solid var(--notary-navy);">
     <div class="d-flex justify-content-between align-items-start" style="flex-wrap: wrap; gap: 1rem;">
-        <div>
-            <h1 style="font-size: 1.75rem; font-weight: 700; color: var(--notary-navy); margin-bottom: 0.5rem;">{{ $operation }}</h1>
-            <div style="display: flex; gap: 1.5rem; color: var(--neutral-slate-500); font-size: 0.875rem;">
+        <div style="flex: 1; min-width: 0;">
+            <h1 style="font-size: 1.75rem; font-weight: 700; color: var(--notary-navy); margin-bottom: 0.5rem; word-break: break-word;">{{ $operation }}</h1>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; color: var(--neutral-slate-500); font-size: 0.875rem;">
                 <span style="display: flex; align-items: center; gap: 0.25rem;"><span class="material-icons" style="font-size: 16px;">folder_open</span> Expediente: #{{ $expediente }}</span>
                 <span style="display: flex; align-items: center; gap: 0.25rem;"><span class="material-icons" style="font-size: 16px;">gavel</span> Instrumento: #{{ $instrument }}</span>
                 @if($proc->get('date'))
@@ -112,10 +120,12 @@
                     <div style="margin-top: 1rem; font-size: 0.875rem; color: {{ $labelColor }}; font-weight: {{ $fontWeight }}; line-height: 1.2; padding: 0 5px;">{{ $nombre }}</div>
                 </div>
             @endforeach
+            </div>
         </div>
     </div>
 </div>
 
+@if($isGrantor)
 <div class="row" style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0;">
     <!-- Checklist Documental -->
     <div style="flex: 1; min-width: 300px; background-color: var(--neutral-white); border: 1px solid var(--neutral-slate-200); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);">
@@ -146,8 +156,8 @@
                         }
                     @endphp
                     <div style="display: flex; flex-direction: column; padding-bottom: 1rem; border-bottom: 1px solid var(--neutral-slate-100);">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.25rem;">
-                            <span style="font-size: 0.875rem; color: var(--neutral-slate-700); font-weight: 500;">{{ collect($doc)->get('name') }}</span>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.25rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <span style="font-size: 0.875rem; color: var(--neutral-slate-700); font-weight: 500; min-width: 150px;">{{ collect($doc)->get('name') }}</span>
                             @if($hasFile)
                                 <div style="display: flex; gap: 0.5rem; align-items: center;">
                                     <span class="o2c-badge o2c-badge--verified" style="font-size: 0.75rem; padding: 0.25rem 0.65rem;">Entregado</span>
@@ -172,8 +182,10 @@
                 @endforeach
             </div>
         @else
-            <div style="text-align: center; padding: 2rem 0; color: var(--neutral-slate-500); font-size: 0.875rem;">
-                No hay documentos registrados para este expediente.
+            <div style="text-align: center; padding: 2.5rem 1rem; color: var(--neutral-slate-500); font-size: 0.875rem; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--neutral-slate-50); border-radius: 8px; border: 1px dashed var(--neutral-slate-200);">
+                <span class="material-icons" style="font-size: 32px; color: var(--neutral-slate-300); margin-bottom: 0.5rem;">folder_open</span>
+                <span style="font-weight: 500; color: var(--neutral-slate-700);">Aún no hay documentos</span>
+                <span style="font-size: 0.75rem; margin-top: 0.25rem;">Los documentos requeridos aparecerán aquí.</span>
             </div>
         @endif
     </div>
@@ -200,8 +212,10 @@
                 @endforeach
             </div>
         @else
-            <div style="text-align: center; padding: 2rem 0; color: var(--neutral-slate-500); font-size: 0.875rem;">
-                No hay partes registradas para este expediente.
+            <div style="text-align: center; padding: 2.5rem 1rem; color: var(--neutral-slate-500); font-size: 0.875rem; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--neutral-slate-50); border-radius: 8px; border: 1px dashed var(--neutral-slate-200);">
+                <span class="material-icons" style="font-size: 32px; color: var(--neutral-slate-300); margin-bottom: 0.5rem;">person_add_disabled</span>
+                <span style="font-weight: 500; color: var(--neutral-slate-700);">Aún no hay partes registradas</span>
+                <span style="font-size: 0.75rem; margin-top: 0.25rem;">Las partes involucradas se listarán aquí.</span>
             </div>
         @endif
     </div>
@@ -218,9 +232,9 @@
                 @foreach($gestiones as $gestion)
                     <div style="position: relative; margin-bottom: 1.5rem;">
                         <div style="position: absolute; left: -21px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background-color: var(--accent-gold); border: 2px solid var(--neutral-white); box-shadow: 0 0 0 1px var(--neutral-slate-200);"></div>
-                        <div>
-                            <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--neutral-slate-900); margin-bottom: 0.25rem;">{{ collect($gestion)->get('name') }}</h4>
-                            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem;">
+                        <div style="flex: 1; min-width: 0;">
+                            <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--neutral-slate-900); margin-bottom: 0.25rem; word-break: break-word;">{{ collect($gestion)->get('name') }}</h4>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; font-size: 0.75rem;">
                                 <span style="color: var(--neutral-slate-500);">{{ collect($gestion)->get('status') }}</span>
                                 @if(collect($gestion)->get('date'))
                                     <span style="color: var(--neutral-slate-300);">|</span>
@@ -232,8 +246,10 @@
                 @endforeach
             </div>
         @else
-            <div style="text-align: center; padding: 2rem 0; color: var(--neutral-slate-500); font-size: 0.875rem;">
-                Aún no hay gestiones registradas para este expediente.
+            <div style="text-align: center; padding: 2.5rem 1rem; color: var(--neutral-slate-500); font-size: 0.875rem; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--neutral-slate-50); border-radius: 8px; border: 1px dashed var(--neutral-slate-200);">
+                <span class="material-icons" style="font-size: 32px; color: var(--neutral-slate-300); margin-bottom: 0.5rem;">pending_actions</span>
+                <span style="font-weight: 500; color: var(--neutral-slate-700);">Aún no hay gestiones</span>
+                <span style="font-size: 0.75rem; margin-top: 0.25rem;">El historial de avisos se listará aquí.</span>
             </div>
         @endif
     </div>
@@ -276,6 +292,7 @@
         </div>
     </div>
 </div>
+@endif
 
 <!-- Document Modal -->
 <div id="documentModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(15, 23, 42, 0.7); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
@@ -310,7 +327,64 @@ body.modal-open { overflow: hidden; }
 </style>
 
 <script>
+function showDownloadToast(title) {
+    const toast = document.createElement('div');
+    toast.style.position = 'fixed';
+    toast.style.bottom = '20px';
+    toast.style.right = '20px';
+    toast.style.backgroundColor = 'var(--notary-navy)';
+    toast.style.color = 'white';
+    toast.style.padding = '1rem 1.5rem';
+    toast.style.borderRadius = '8px';
+    toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+    toast.style.zIndex = '10000';
+    toast.style.display = 'flex';
+    toast.style.alignItems = 'center';
+    toast.style.gap = '0.75rem';
+    toast.style.transform = 'translateY(100px)';
+    toast.style.opacity = '0';
+    toast.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    
+    toast.innerHTML = `
+        <span class="material-icons">download</span>
+        <div>
+            <strong style="display: block; font-size: 0.875rem;">Descargando archivo</strong>
+            <span style="font-size: 0.75rem; opacity: 0.9;">${title}</span>
+        </div>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+    }, 50);
+    
+    setTimeout(() => {
+        toast.style.transform = 'translateY(100px)';
+        toast.style.opacity = '0';
+        setTimeout(() => document.body.removeChild(toast), 300);
+    }, 4000);
+}
+
 function openDocumentModal(url, title) {
+    // Check if URL belongs to a file that browsers cannot natively render
+    const downloadableExts = ['.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.zip', '.rar'];
+    const isDownloadable = downloadableExts.some(ext => url.toLowerCase().includes(ext));
+
+    if (isDownloadable) {
+        showDownloadToast(title || 'Documento');
+        
+        // Trigger download directly bypassing the modal
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        return;
+    }
+
     document.getElementById('documentModalTitle').innerText = title || 'Visor de Documento';
     document.getElementById('documentLoading').style.display = 'flex';
     document.getElementById('documentIframe').src = url;
